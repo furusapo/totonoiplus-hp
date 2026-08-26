@@ -395,41 +395,189 @@
       border-bottom: 1px solid var(--color-cream-dark);
     }
 
-    /* ===== SCENE SECTION (黒背景) ===== */
-    .section-scene {
-      background: var(--color-black);
-      color: var(--color-white);
+    /* ===== SCENE SECTION / SAMPLE MATCH ===== */
+    .section-scene{
+      background:
+        radial-gradient(circle at 50% 0%, rgba(184,151,90,.07), transparent 28%),
+        linear-gradient(180deg,#0d0c0a 0%,#080807 100%);
+      color:#fff;
+      padding:72px 24px 64px;
     }
 
-    .section-scene .section-title {
-      color: var(--color-white);
+    .section-scene .section-inner{
+      max-width:1280px;
+      margin:0 auto;
     }
 
-    .scene-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+    .scene-sample-title{
+      text-align:center;
+      font-family:var(--font-serif);
+      font-size:clamp(28px,3.6vw,52px);
+      font-weight:300;
+      letter-spacing:.12em;
+      color:#fff;
+      margin-bottom:26px;
+      line-height:1.35;
     }
 
-    .scene-card {
-      text-align: center;
+    .scene-sample-title .gold{
+      color:var(--color-gold-light);
     }
 
-    .scene-card-img {
-      width: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-      margin-bottom: 14px;
-      border-radius: 2px;
+    .scene-title-rule{
+      width:220px;
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(184,151,90,.8),transparent);
+      margin:0 auto 34px;
+      position:relative;
     }
 
-    .scene-card-title {
-      font-family: var(--font-serif);
-      font-size: 13px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.9);
-      line-height: 1.6;
-      letter-spacing: 0.05em;
+    .scene-title-rule::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:50%;
+      width:10px;
+      height:10px;
+      background:var(--color-gold-light);
+      transform:translate(-50%,-50%) rotate(45deg);
+      box-shadow:0 0 12px rgba(184,151,90,.35);
+    }
+
+    .scene-mosaic{
+      display:grid;
+      grid-template-columns: 1.12fr .92fr 1.12fr .92fr;
+      grid-template-rows: 1fr 1fr;
+      gap:24px 28px;
+      align-items:stretch;
+    }
+
+    .scene-photo-block{
+      min-height:310px;
+      overflow:hidden;
+      background:#111;
+      box-shadow:0 18px 50px rgba(0,0,0,.22);
+      border-radius:0;
+      clip-path:none;
+    }
+.scene-photo-block img{
+      width:100%;
+      height:100%;
+      min-height:310px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .scene-text-block{
+      min-height:310px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:20px 0;
+    }
+
+    .scene-text-block .scene-icon{
+      width:54px;
+      height:54px;
+      margin-bottom:14px;
+      color:var(--color-gold-light);
+    }
+
+    .scene-text-block .scene-icon svg{
+      width:100%;
+      height:100%;
+      fill:none;
+      stroke:currentColor;
+      stroke-width:1.4;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .scene-text-block h3{
+      font-family:var(--font-serif);
+      font-weight:400;
+      color:var(--color-gold-light);
+      font-size:clamp(20px,2.1vw,30px);
+      letter-spacing:.08em;
+      line-height:1.45;
+      margin-bottom:14px;
+    }
+
+    .scene-mini-rule{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin:0 0 18px;
+      width:100%;
+      max-width:230px;
+    }
+
+    .scene-mini-rule::before,
+    .scene-mini-rule::after{
+      content:"";
+      height:1px;
+      flex:1;
+      background:rgba(184,151,90,.65);
+    }
+
+    .scene-mini-rule span{
+      width:8px;
+      height:8px;
+      background:var(--color-gold-light);
+      transform:rotate(45deg);
+      flex:0 0 auto;
+    }
+
+    .scene-text-block p{
+      font-family:var(--font-serif);
+      font-size:15px;
+      line-height:2;
+      letter-spacing:.04em;
+      color:rgba(255,255,255,.82);
+      max-width:260px;
+    }
+
+    .scene-closing{
+      text-align:center;
+      font-family:var(--font-serif);
+      font-size:clamp(18px,2.1vw,30px);
+      font-weight:300;
+      letter-spacing:.12em;
+      line-height:1.5;
+      color:#fff;
+      margin-top:38px;
+    }
+
+    .scene-closing::after{
+      content:"";
+      display:block;
+      width:min(560px,62%);
+      height:1px;
+      margin:14px auto 0;
+      background:linear-gradient(90deg,transparent,rgba(184,151,90,.9),transparent);
+      box-shadow:0 0 10px rgba(184,151,90,.4);
+    }
+
+    @media(max-width:980px){
+      .scene-mosaic{
+        grid-template-columns:1fr 1fr;
+        gap:22px;
+      }
+      .scene-photo-block,
+      .scene-text-block{
+        min-height:280px;
+      }
+}
+
+    @media(max-width:640px){
+      .section-scene{padding:56px 16px 50px}
+      .scene-mosaic{grid-template-columns:1fr;gap:12px}
+      .scene-photo-block,
+      .scene-text-block{min-height:auto}
+.scene-photo-block img{min-height:230px}
+      .scene-text-block{padding:8px 4px 26px}
+      .scene-text-block p{max-width:none}
+      .scene-closing{margin-top:18px}
     }
 
     /* ===== DESIGN SECTION (黒背景) ===== */
@@ -842,6 +990,431 @@
       transform: translateY(0);
     }
   </style>
+
+<style id="scene-balance-fix">
+/* ===== シーン部分 バランス調整 ===== */
+
+.section-scene .section-inner{
+  max-width: 1400px !important;
+}
+
+/* 画像・文章・画像・文章 */
+.scene-mosaic{
+  display: grid !important;
+  grid-template-columns: minmax(300px, 1.15fr) minmax(280px, .85fr) minmax(300px, 1.15fr) minmax(280px, .85fr) !important;
+  column-gap: 42px !important;
+  row-gap: 70px !important;
+  align-items: center !important;
+}
+
+/* PNGの形をそのまま全部表示 */
+.scene-photo-block{
+  width: 100% !important;
+  min-height: 0 !important;
+  height: auto !important;
+  background: transparent !important;
+  overflow: visible !important;
+  border-radius: 0 !important;
+  clip-path: none !important;
+  box-shadow: none !important;
+}
+
+.scene-photo-block.tl,
+.scene-photo-block.tr,
+.scene-photo-block.bl,
+.scene-photo-block.br{
+  border-radius: 0 !important;
+  clip-path: none !important;
+}
+
+/* 画像を少し大きく */
+.scene-photo-block img{
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+}
+
+/* 文章側 */
+.scene-text-block{
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  justify-content: center !important;
+}
+
+/* アイコン */
+.scene-text-block .scene-icon{
+  width: 48px !important;
+  height: 48px !important;
+  margin-bottom: 20px !important;
+}
+
+/* 見出し */
+.scene-text-block h3{
+  font-size: clamp(24px, 2vw, 32px) !important;
+  line-height: 1.5 !important;
+  margin-bottom: 16px !important;
+  white-space: normal !important;
+}
+
+/* 横線 */
+.scene-mini-rule{
+  max-width: 300px !important;
+  margin-bottom: 22px !important;
+}
+
+/* 本文を横に広げて改行を減らす */
+.scene-text-block p{
+  max-width: 320px !important;
+  font-size: 16px !important;
+  line-height: 2.05 !important;
+}
+
+/* タブレット */
+@media(max-width:1100px){
+  .scene-mosaic{
+    grid-template-columns: 1fr 1fr !important;
+    column-gap: 38px !important;
+    row-gap: 50px !important;
+  }
+}
+
+/* スマホ */
+@media(max-width:640px){
+  .scene-mosaic{
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .scene-photo-block{
+    margin-top: 28px !important;
+  }
+
+  .scene-text-block{
+    padding: 0 10px 30px !important;
+  }
+
+  .scene-text-block p{
+    max-width: none !important;
+  }
+}
+</style>
+
+
+<style id="price-v2-style">
+
+/* ===== 料金セクション ===== */
+
+.price-v2{
+  background:#050505 !important;
+  padding:80px 24px 64px !important;
+}
+
+.price-v2 .section-title{
+  color:#fff !important;
+  margin-bottom:48px !important;
+}
+
+.price-main-card{
+  max-width:760px;
+  margin:0 auto;
+  border:1px solid #b8975a;
+  padding:5px;
+  background:
+    radial-gradient(circle at 12% 55%, rgba(184,151,90,.12), transparent 24%),
+    linear-gradient(135deg,#140f09,#080706);
+}
+
+.price-main-inner{
+  position:relative;
+  padding:70px 80px 56px;
+  text-align:center;
+  border:1px solid rgba(184,151,90,.45);
+}
+
+.price-main-inner::before,
+.price-main-inner::after{
+  content:"";
+  position:absolute;
+  width:14px;
+  height:14px;
+  border-color:#b8975a;
+}
+
+.price-main-inner::before{
+  left:10px;
+  top:10px;
+  border-left:1px solid #b8975a;
+  border-top:1px solid #b8975a;
+}
+
+.price-main-inner::after{
+  right:10px;
+  bottom:10px;
+  border-right:1px solid #b8975a;
+  border-bottom:1px solid #b8975a;
+}
+
+.price-main-label{
+  color:#fff;
+  font-family:var(--font-serif);
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+.price-main-amount{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:8px;
+  line-height:1;
+  margin-bottom:22px;
+}
+
+.price-yen{
+  color:#d6a65a;
+  font-family:var(--font-en);
+  font-size:clamp(66px,8vw,96px);
+  font-weight:400;
+}
+
+.price-unit{
+  color:#d6a65a;
+  font-family:var(--font-serif);
+  font-size:28px;
+  padding-bottom:12px;
+}
+
+.price-main-desc{
+  color:rgba(255,255,255,.88);
+  font-family:var(--font-serif);
+  font-size:18px;
+  letter-spacing:.08em;
+  margin-bottom:34px;
+}
+
+.price-main-rule{
+  height:1px;
+  background:linear-gradient(90deg,transparent,#b8975a 12%,#b8975a 88%,transparent);
+  margin-bottom:28px;
+}
+
+.price-fee{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:24px;
+}
+
+.price-fee-icon{
+  color:#d6a65a;
+  font-size:42px;
+  line-height:1;
+}
+
+.price-fee-label{
+  color:rgba(255,255,255,.78);
+  text-align:left;
+  font-size:14px;
+  margin-bottom:4px;
+}
+
+.price-fee-amount{
+  color:#d6a65a;
+  text-align:left;
+  font-family:var(--font-serif);
+  font-size:24px;
+}
+
+.price-fee-amount small{
+  color:rgba(255,255,255,.7);
+  font-size:12px;
+}
+
+
+/* ===== 封筒背景セクション ===== */
+
+.envelope-section{
+  width:100%;
+  min-height:520px;
+  background-image:url("images/gift/ticket_base.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+.envelope-overlay{
+  width:100%;
+  min-height:520px;
+  display:flex;
+  align-items:center;
+  background:linear-gradient(
+    90deg,
+    rgba(0,0,0,.98) 0%,
+    rgba(0,0,0,.94) 20%,
+    rgba(0,0,0,.72) 38%,
+    rgba(0,0,0,.12) 62%,
+    rgba(0,0,0,0) 100%
+  );
+}
+
+.envelope-content{
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+  padding:70px 24px;
+}
+
+.envelope-eyebrow{
+  color:#d6a65a;
+  font-family:var(--font-serif);
+  font-size:26px;
+  letter-spacing:.08em;
+  margin-bottom:22px;
+}
+
+.envelope-small{
+  color:#fff;
+  font-family:var(--font-serif);
+  font-size:16px;
+  margin-bottom:4px;
+}
+
+.envelope-price{
+  display:flex;
+  align-items:flex-end;
+  gap:5px;
+  margin-bottom:22px;
+}
+
+.envelope-price-num{
+  color:#d6a65a;
+  font-family:var(--font-en);
+  font-size:58px;
+  line-height:1;
+}
+
+.envelope-price-unit{
+  color:#d6a65a;
+  font-family:var(--font-serif);
+  font-size:24px;
+  padding-bottom:6px;
+}
+
+.envelope-desc{
+  color:rgba(255,255,255,.9);
+  font-family:var(--font-serif);
+  font-size:16px;
+  line-height:2;
+  letter-spacing:.05em;
+}
+
+
+/* ===== レスポンシブ ===== */
+
+@media(max-width:900px){
+
+  .price-main-inner{
+    padding:56px 32px 44px;
+  }
+
+  .envelope-section,
+  .envelope-overlay{
+    min-height:460px;
+  }
+
+  .envelope-section{
+    background-position:62% center;
+  }
+
+  .envelope-overlay{
+    background:linear-gradient(
+      90deg,
+      rgba(0,0,0,.96) 0%,
+      rgba(0,0,0,.84) 45%,
+      rgba(0,0,0,.25) 100%
+    );
+  }
+}
+
+@media(max-width:640px){
+
+  .price-v2{
+    padding:58px 16px 44px !important;
+  }
+
+  .price-main-inner{
+    padding:46px 20px 36px;
+  }
+
+  .price-main-amount{
+    gap:4px;
+  }
+
+  .price-unit{
+    font-size:22px;
+    padding-bottom:9px;
+  }
+
+  .price-main-desc{
+    font-size:15px;
+  }
+
+  .price-fee{
+    gap:14px;
+  }
+
+  .price-fee-icon{
+    font-size:30px;
+  }
+
+  .price-fee-label{
+    font-size:12px;
+  }
+
+  .price-fee-amount{
+    font-size:20px;
+  }
+
+  .envelope-section{
+    min-height:520px;
+    background-position:65% center;
+  }
+
+  .envelope-overlay{
+    min-height:520px;
+    align-items:flex-end;
+    background:linear-gradient(
+      0deg,
+      rgba(0,0,0,.98) 0%,
+      rgba(0,0,0,.92) 38%,
+      rgba(0,0,0,.25) 72%,
+      rgba(0,0,0,.05) 100%
+    );
+  }
+
+  .envelope-content{
+    padding:260px 24px 46px;
+  }
+
+  .envelope-eyebrow{
+    font-size:23px;
+  }
+
+  .envelope-desc{
+    font-size:14px;
+  }
+}
+
+</style>
+
 </head>
 <body>
 
@@ -903,11 +1476,11 @@
       <p class="hero-title-en">TOTONOI+ GIFT CARD</p>
 
       <div class="hero-buttons">
-        <a href="tel:0000000000" class="btn btn-outline-gold">
+        <a href="tel:0487834122" class="btn btn-outline-gold">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
           お電話でお問い合わせ
         </a>
-        <a href="https://lin.ee/" target="_blank" rel="noopener" class="btn btn-green">
+        <a href="https://lin.ee/WI1loJE" target="_blank" rel="noopener" class="btn btn-green">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
           公式LINEでお問い合わせ
         </a>
@@ -960,34 +1533,82 @@
   <!-- ===== SCENE SECTION ===== -->
   <section class="section section-scene">
     <div class="section-inner">
-      <h2 class="section-title fade-in">さまざまな贈り物のシーンに</h2>
 
-      <div class="scene-grid">
-        <div class="scene-card fade-in">
-          <img class="scene-card-img"
-               src="images/gift/scene-birthday.jpg"
-               alt="記念日の贈り物に">
-          <p class="scene-card-title">記念日の<br>贈り物に</p>
+      <h2 class="scene-sample-title fade-in">こんな<span class="gold">シーン</span>で選ばれています</h2>
+      <div class="scene-title-rule fade-in"></div>
+
+      <div class="scene-mosaic">
+
+        <div class="scene-photo-block tl fade-in">
+          <img src="images/gift/scene-birthday.png" alt="誕生日の贈り物">
         </div>
-        <div class="scene-card fade-in">
-          <img class="scene-card-img"
-               src="images/gift/scene-reward.jpg"
-               alt="自分へのご褒美に">
-          <p class="scene-card-title">自分への<br>ご褒美に</p>
+
+        <div class="scene-text-block fade-in">
+          <div class="scene-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <path d="M12 48h40M16 44h32V29H16z"/>
+              <path d="M20 29v-8m12 8V17m12 12v-8"/>
+              <path d="M17 21c0-3 3-6 3-6s3 3 3 6m6-4c0-3 3-6 3-6s3 3 3 6m6 4c0-3 3-6 3-6s3 3 3 6"/>
+            </svg>
+          </div>
+          <h3>誕生日に</h3>
+          <div class="scene-mini-rule"><span></span></div>
+          <p>大切な人の特別な日を、<br>心に残るひとときでお祝いします。</p>
         </div>
-        <div class="scene-card fade-in">
-          <img class="scene-card-img"
-               src="images/gift/scene-event.jpg"
-               alt="イベントの景品として">
-          <p class="scene-card-title">イベントの<br>景品として</p>
+
+        <div class="scene-photo-block tr fade-in">
+          <img src="images/gift/scene-reward.png" alt="お祝い・お返しの贈り物">
         </div>
-        <div class="scene-card fade-in">
-          <img class="scene-card-img"
-               src="images/gift/scene-labor.jpg"
-               alt="頑張る人への労いに">
-          <p class="scene-card-title">頑張る人への<br>労いに</p>
+
+        <div class="scene-text-block fade-in">
+          <div class="scene-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <path d="M12 24h40v30H12zM32 24v30M9 16h46v10H9z"/>
+              <path d="M32 16c-7 0-12-2-12-7 0-4 5-6 8-3 3 3 4 10 4 10z"/>
+              <path d="M32 16c7 0 12-2 12-7 0-4-5-6-8-3-3 3-4 10-4 10z"/>
+            </svg>
+          </div>
+          <h3>お祝い・お返しに</h3>
+          <div class="scene-mini-rule"><span></span></div>
+          <p>お祝いや内祝い、<br>お礼の気持ちを上質なギフトに込めて。</p>
         </div>
+
+        <div class="scene-photo-block bl fade-in">
+          <img src="images/gift/scene-event.png" alt="接待・ゴルフコンペ">
+        </div>
+
+        <div class="scene-text-block fade-in">
+          <div class="scene-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <path d="M8 26l12-11 9 7 12-7 15 11-11 11-9-6-7 6-7-6-6 6z"/>
+              <path d="M20 15l7 8m14-8l-7 8M16 37l10 10c4 4 8 4 12 0l10-10"/>
+            </svg>
+          </div>
+          <h3>接待・ゴルフコンペに</h3>
+          <div class="scene-mini-rule"><span></span></div>
+          <p>大切なお取引先や、<br>コンペの景品としても喜ばれる贈り物です。</p>
+        </div>
+
+        <div class="scene-photo-block br fade-in">
+          <img src="images/gift/scene-labor.png" alt="表彰・福利厚生">
+        </div>
+
+        <div class="scene-text-block fade-in">
+          <div class="scene-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <path d="M22 10h20v12c0 10-5 17-10 17s-10-7-10-17z"/>
+              <path d="M22 15H13c0 10 4 16 12 18m17-18h9c0 10-4 16-12 18"/>
+              <path d="M32 39v10m-11 6h22"/>
+            </svg>
+          </div>
+          <h3>表彰・福利厚生に</h3>
+          <div class="scene-mini-rule"><span></span></div>
+          <p>従業員の表彰や福利厚生など、<br>感謝や労いの気持ちを伝える贈り物として。</p>
+        </div>
+
       </div>
+
+      <p class="scene-closing fade-in">大切な方への贈り物に、特別な「ととのい」を。</p>
     </div>
   </section>
 
@@ -1029,51 +1650,59 @@
   </section>
 
   <!-- ===== PRICE SECTION ===== -->
-  <section class="section section-price">
-    <div class="section-inner">
-      <h2 class="section-title fade-in">料金について</h2>
 
-      <div class="price-layout">
-        <div class="price-box fade-in">
-          <div class="price-main">
-            <p class="price-label">1枚</p>
-            <div>
-              <span class="price-amount">5,000</span>
-              <span class="price-amount-unit">円</span>
-              <span class="price-amount-from">〜</span>
-            </div>
-          </div>
-          <p class="price-desc">
-            お好きな枚数を<br>ご購入いただけます
-          </p>
-          <p class="price-note">ギフト封筒・発行手数料として一律 500円</p>
+<section class="section section-price price-v2">
+  <div class="section-inner">
+
+    <h2 class="section-title fade-in">料金について</h2>
+
+    <div class="price-main-card fade-in">
+      <div class="price-main-inner">
+        <div class="price-main-label">1枚</div>
+
+        <div class="price-main-amount">
+          <span class="price-yen">5,000</span>
+          <span class="price-unit">円〜</span>
         </div>
 
-        <div class="price-right fade-in">
-          <img class="price-card-img"
-               src="images/gift/price-card.jpg"
-               alt="ギフトカードイメージ">
+        <p class="price-main-desc">お好きな枚数をご購入いただけます</p>
 
-          <div class="price-envelope-note">
-            <p class="env-label">封筒の追加購入</p>
-            <p>
-              <span class="env-price">1枚 380</span>
-              <span class="env-price-unit">円</span>
-            </p>
-          </div>
+        <div class="price-main-rule"></div>
 
-          <div class="price-buttons">
-            <a href="tel:0000000000" class="btn btn-outline-gold" style="font-size:12px; padding:12px 20px;">
-              お電話でお問い合わせ
-            </a>
-            <a href="https://lin.ee/" target="_blank" rel="noopener" class="btn btn-green" style="font-size:12px; padding:12px 20px;">
-              公式LINEでお問い合わせ
-            </a>
+        <div class="price-fee">
+          <span class="price-fee-icon">✉</span>
+          <div>
+            <div class="price-fee-label">ギフト封筒・発行手数料として</div>
+            <div class="price-fee-amount">一律 550円 <small>（税込）</small></div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+
+  </div>
+</section>
+
+<section class="envelope-section fade-in">
+  <div class="envelope-overlay">
+    <div class="envelope-content">
+      <p class="envelope-eyebrow">封筒の追加購入</p>
+
+      <p class="envelope-small">1枚につき</p>
+
+      <div class="envelope-price">
+        <span class="envelope-price-num">380</span>
+        <span class="envelope-price-unit">円</span>
+      </div>
+
+      <p class="envelope-desc">
+        一度のご購入で、<br>
+        複数名へお渡しいただけるよう、<br>
+        必要枚数分の封筒をご購入いただけます。
+      </p>
+    </div>
+  </div>
+</section>
+
 
   <!-- ===== COUPON SECTION ===== -->
   <section class="section section-coupon">
@@ -1083,7 +1712,7 @@
           <p class="coupon-eyebrow">よくご利用いただくお客様へ</p>
           <h2 class="coupon-title">お得な回数券も<br>ご用意しております</h2>
           <p class="coupon-subtitle">現在は予約サイトよりご購入いただけます</p>
-          <a href="#" class="btn btn-gold-solid" style="font-size:13px; padding:14px 28px;">
+          <a href="https://totonoiplus.stores.jp/reserve/omiya/products#pageContent" target="_blank" rel="noopener" class="btn btn-gold-solid" style="font-size:13px; padding:14px 28px;">
             回数券を詳しく見る ▶
           </a>
         </div>
@@ -1141,3 +1770,32 @@
 
 </body>
 </html>
+
+<style>
+/* シーン画像：PNGに入っている斜めデザインをそのまま全部表示 */
+.scene-photo-block {
+  background: transparent !important;
+  overflow: visible !important;
+  border-radius: 0 !important;
+  clip-path: none !important;
+  min-height: auto !important;
+}
+
+.scene-photo-block.tl,
+.scene-photo-block.tr,
+.scene-photo-block.bl,
+.scene-photo-block.br {
+  border-radius: 0 !important;
+  clip-path: none !important;
+}
+
+.scene-photo-block img {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+  border-radius: 0 !important;
+}
+</style>
