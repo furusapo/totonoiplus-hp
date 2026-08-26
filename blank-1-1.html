@@ -346,53 +346,202 @@
       margin: 16px auto 0;
     }
 
-    /* ===== USAGE SECTION (白背景) ===== */
+    /* ===== USAGE SECTION / 2×2 CARD DESIGN ===== */
     .section-usage {
-      background: var(--color-white);
+      position: relative;
+      background-color: #fff;
+      background-image: url("images/gift/konna.png");
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: cover;
+      padding: 88px 24px 92px;
+      overflow: hidden;
+    }
+
+    .section-usage::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,.16);
+      pointer-events: none;
+    }
+
+    .section-usage .section-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .section-usage .section-title {
+      color: #1d1d1d;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.45;
+      letter-spacing: .12em;
+      margin-bottom: 28px;
+    }
+
+    .usage-intro {
+      max-width: 760px;
+      margin: 0 auto 46px;
+      text-align: center;
+      font-family: var(--font-serif);
+      font-size: 17px;
+      line-height: 2;
+      color: #333;
+      letter-spacing: .05em;
     }
 
     .usage-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin-bottom: 40px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      margin: 0;
     }
 
     .usage-card {
-      text-align: center;
+      position: relative;
+      background: rgba(255,255,255,.96);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(70,52,25,.10);
+      text-align: left;
+    }
+
+    .usage-card-media {
+      position: relative;
+      overflow: hidden;
     }
 
     .usage-card-img {
       width: 100%;
-      aspect-ratio: 4/3;
+      aspect-ratio: 16/10;
       object-fit: cover;
-      margin-bottom: 16px;
-      border-radius: 2px;
+      margin: 0;
+      border-radius: 0;
+      display: block;
+    }
+
+    .usage-card-num {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-en);
+      font-size: 28px;
+      color: #fff;
+      background: radial-gradient(circle at 35% 30%, #e9ce83 0%, #c49a41 55%, #a77b29 100%);
+      box-shadow: 0 5px 16px rgba(156,114,35,.30);
+      letter-spacing: .02em;
+    }
+
+    .usage-card-body {
+      display: grid;
+      grid-template-columns: 64px minmax(0,1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 28px 30px 30px;
+    }
+
+    .usage-card-icon {
+      width: 56px;
+      height: 56px;
+      color: #c79a3b;
+    }
+
+    .usage-card-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .usage-card-title {
       font-family: var(--font-serif);
-      font-size: 15px;
+      font-size: 23px;
       font-weight: 500;
-      margin-bottom: 6px;
-      letter-spacing: 0.05em;
+      margin: 1px 0 10px;
+      letter-spacing: .04em;
+      color: #1f1f1f;
     }
 
     .usage-card-desc {
-      font-size: 12px;
-      color: var(--color-text-mid);
-      line-height: 1.6;
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: #3f3f3f;
+      line-height: 1.9;
+      letter-spacing: .03em;
     }
 
-    .usage-note {
-      text-align: center;
-      font-family: var(--font-serif);
-      font-size: 14px;
-      color: var(--color-text-mid);
-      letter-spacing: 0.06em;
-      padding: 20px 0;
-      border-top: 1px solid var(--color-cream-dark);
-      border-bottom: 1px solid var(--color-cream-dark);
+    @media (max-width: 700px) {
+      .section-usage {
+        padding: 58px 14px 62px;
+        background-position: center top;
+      }
+
+      .section-usage .section-title {
+        font-size: 27px;
+        line-height: 1.5;
+        margin-bottom: 22px;
+      }
+
+      .usage-intro {
+        font-size: 13px;
+        line-height: 1.9;
+        margin-bottom: 30px;
+        padding: 0 8px;
+      }
+
+      .usage-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .usage-card {
+        border-radius: 7px;
+      }
+
+      .usage-card-img {
+        aspect-ratio: 4/3;
+      }
+
+      .usage-card-num {
+        top: 8px;
+        left: 8px;
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+      }
+
+      .usage-card-body {
+        grid-template-columns: 34px minmax(0,1fr);
+        gap: 8px;
+        padding: 14px 11px 16px;
+      }
+
+      .usage-card-icon {
+        width: 32px;
+        height: 32px;
+      }
+
+      .usage-card-title {
+        font-size: 13px;
+        margin: 0 0 5px;
+        line-height: 1.45;
+      }
+
+      .usage-card-desc {
+        font-size: 9.5px;
+        line-height: 1.65;
+      }
     }
 
     /* ===== SCENE SECTION / SAMPLE MATCH ===== */
@@ -989,543 +1138,573 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    @media (max-width: 640px) {
+      .section-usage {
+        background-size: auto 300px;
+        background-position: center top;
+        padding-top: 72px !important;
+      }
+      .section-usage::before {
+        height: 300px;
+      }
+      .section-usage .section-title {
+        margin-bottom: 36px !important;
+      }
+    }
   </style>
 
-<style id="scene-balance-fix">
-/* ===== シーン部分 バランス調整 ===== */
+  <style id="final-0826-consolidated-fixes">
+    /* ===== FINAL CONSOLIDATED FIXES 2026-08-26 ===== */
 
-.section-scene .section-inner{
-  max-width: 1400px !important;
+    /* 利用シーン見出し：全文ゴールド */
+    .scene-sample-title,
+    .scene-sample-title .gold {
+      color: var(--color-gold-light) !important;
+    }
+
+    /* 利用シーン：PNGの斜めデザインを切らずに表示 */
+    .section-scene .section-inner {
+      max-width: 1400px !important;
+    }
+
+    .scene-mosaic {
+      display: grid !important;
+      grid-template-columns: minmax(300px,1.15fr) minmax(280px,.85fr) minmax(300px,1.15fr) minmax(280px,.85fr) !important;
+      column-gap: 42px !important;
+      row-gap: 70px !important;
+      align-items: center !important;
+    }
+
+    .scene-photo-block,
+    .scene-photo-block.tl,
+    .scene-photo-block.tr,
+    .scene-photo-block.bl,
+    .scene-photo-block.br {
+      width: 100% !important;
+      min-height: 0 !important;
+      height: auto !important;
+      background: transparent !important;
+      overflow: visible !important;
+      border-radius: 0 !important;
+      clip-path: none !important;
+      box-shadow: none !important;
+    }
+
+    .scene-photo-block img {
+      width: 100% !important;
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      display: block !important;
+      border-radius: 0 !important;
+    }
+
+    .scene-text-block {
+      min-height: 0 !important;
+      height: auto !important;
+      padding: 0 !important;
+      justify-content: center !important;
+    }
+
+    .scene-text-block .scene-icon {
+      width: 48px !important;
+      height: 48px !important;
+      margin-bottom: 20px !important;
+    }
+
+    .scene-text-block h3 {
+      font-size: clamp(24px,2vw,32px) !important;
+      line-height: 1.5 !important;
+      margin-bottom: 16px !important;
+    }
+
+    .scene-mini-rule {
+      max-width: 300px !important;
+      margin-bottom: 22px !important;
+    }
+
+    .scene-text-block p {
+      max-width: 320px !important;
+      font-size: 16px !important;
+      line-height: 2.05 !important;
+    }
+
+    /* ===== 料金カード ===== */
+    .price-v2 {
+      background: #050505 !important;
+      padding: 80px 24px 64px !important;
+    }
+
+    .price-v2 .section-title {
+      color: #fff !important;
+      margin-bottom: 48px !important;
+    }
+
+    .price-main-card {
+      max-width: 760px;
+      margin: 0 auto;
+      border: 1px solid #b8975a;
+      padding: 5px;
+      background: radial-gradient(circle at 12% 55%,rgba(184,151,90,.12),transparent 24%),linear-gradient(135deg,#140f09,#080706);
+    }
+
+    .price-main-inner {
+      position: relative;
+      padding: 70px 80px 56px;
+      text-align: center;
+      border: 1px solid rgba(184,151,90,.45);
+    }
+
+    .price-main-inner::before,
+    .price-main-inner::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-color: #b8975a;
+    }
+
+    .price-main-inner::before {
+      left: 10px;
+      top: 10px;
+      border-left: 1px solid #b8975a;
+      border-top: 1px solid #b8975a;
+    }
+
+    .price-main-inner::after {
+      right: 10px;
+      bottom: 10px;
+      border-right: 1px solid #b8975a;
+      border-bottom: 1px solid #b8975a;
+    }
+
+    .price-main-label {
+      color: #fff;
+      font-family: var(--font-serif);
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .price-main-amount {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 8px;
+      line-height: 1;
+      margin-bottom: 22px;
+    }
+
+    .price-yen {
+      color: #d6a65a;
+      font-family: var(--font-en);
+      font-size: clamp(66px,8vw,96px);
+      font-weight: 400;
+    }
+
+    .price-unit {
+      color: #d6a65a;
+      font-family: var(--font-serif);
+      font-size: 28px;
+      padding-bottom: 12px;
+    }
+
+    .price-main-desc {
+      color: rgba(255,255,255,.88);
+      font-family: var(--font-serif);
+      font-size: 18px;
+      letter-spacing: .08em;
+      margin-bottom: 34px;
+    }
+
+    .price-main-rule {
+      height: 1px;
+      background: linear-gradient(90deg,transparent,#b8975a 12%,#b8975a 88%,transparent);
+      margin-bottom: 28px;
+    }
+
+    .price-fee {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .price-fee-icon {
+      color: #d6a65a;
+      font-size: 42px;
+      line-height: 1;
+    }
+
+    .price-fee-label {
+      color: rgba(255,255,255,.78);
+      text-align: left;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .price-fee-amount {
+      color: #d6a65a;
+      text-align: left;
+      font-family: var(--font-serif);
+      font-size: 24px;
+    }
+
+    .price-fee-amount small {
+      color: rgba(255,255,255,.7);
+      font-size: 12px;
+    }
+
+    /* ===== 封筒追加購入：PC/スマホとも左文字・右画像 ===== */
+    .envelope-section {
+      width: 100%;
+      min-height: 520px;
+      background-image: url("images/gift/ticket_base.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      background-color: #050505;
+    }
+
+    .envelope-overlay {
+      width: 100%;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(90deg,rgba(0,0,0,.98) 0%,rgba(0,0,0,.94) 20%,rgba(0,0,0,.72) 38%,rgba(0,0,0,.12) 62%,rgba(0,0,0,0) 100%);
+    }
+
+    .envelope-content {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 70px 24px;
+    }
+
+    .envelope-eyebrow {
+      color: #d6a65a;
+      font-family: var(--font-serif);
+      font-size: 26px;
+      letter-spacing: .08em;
+      margin-bottom: 22px;
+    }
+
+    .envelope-small {
+      color: #fff;
+      font-family: var(--font-serif);
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .envelope-price {
+      display: flex;
+      align-items: flex-end;
+      gap: 5px;
+      margin-bottom: 22px;
+    }
+
+    .envelope-price-num {
+      color: #d6a65a;
+      font-family: var(--font-en);
+      font-size: 58px;
+      line-height: 1;
+    }
+
+    .envelope-price-unit {
+      color: #d6a65a;
+      font-family: var(--font-serif);
+      font-size: 24px;
+      padding-bottom: 6px;
+    }
+
+    .envelope-desc {
+      color: rgba(255,255,255,.9);
+      font-family: var(--font-serif);
+      font-size: 16px;
+      line-height: 2;
+      letter-spacing: .05em;
+    }
+
+    @media(max-width:1100px) {
+      .scene-mosaic {
+        grid-template-columns: minmax(0,1.12fr) minmax(0,.88fr) minmax(0,1.12fr) minmax(0,.88fr) !important;
+        column-gap: 16px !important;
+        row-gap: 46px !important;
+      }
+    }
+
+    /* スマホでもPCと同じ並び */
+    @media(max-width:640px) {
+      .section-scene {
+        padding: 44px 8px 42px !important;
+        overflow: hidden !important;
+      }
+
+      .section-scene .section-inner {
+        width: 100% !important;
+        max-width: none !important;
+      }
+
+      .scene-sample-title {
+        font-size: 22px !important;
+        letter-spacing: .08em !important;
+        margin-bottom: 20px !important;
+      }
+
+      .scene-title-rule {
+        width: 150px !important;
+        margin-bottom: 28px !important;
+      }
+
+      .scene-mosaic {
+        display: grid !important;
+        grid-template-columns: minmax(0,1.12fr) minmax(0,.88fr) minmax(0,1.12fr) minmax(0,.88fr) !important;
+        grid-template-rows: auto auto !important;
+        column-gap: 8px !important;
+        row-gap: 28px !important;
+        align-items: center !important;
+        width: 100% !important;
+      }
+
+      .scene-photo-block,
+      .scene-photo-block.tl,
+      .scene-photo-block.tr,
+      .scene-photo-block.bl,
+      .scene-photo-block.br {
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        height: auto !important;
+        margin: 0 !important;
+      }
+
+      .scene-photo-block img {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        object-fit: contain !important;
+      }
+
+      .scene-text-block {
+        min-width: 0 !important;
+        min-height: 0 !important;
+        height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      .scene-text-block .scene-icon {
+        width: 21px !important;
+        height: 21px !important;
+        margin: 0 0 7px !important;
+      }
+
+      .scene-text-block h3 {
+        font-size: 11px !important;
+        line-height: 1.55 !important;
+        letter-spacing: .03em !important;
+        margin: 0 0 6px !important;
+      }
+
+      .scene-mini-rule {
+        width: 100% !important;
+        max-width: none !important;
+        gap: 4px !important;
+        margin: 0 0 7px !important;
+      }
+
+      .scene-mini-rule span {
+        width: 4px !important;
+        height: 4px !important;
+      }
+
+      .scene-text-block p {
+        width: 100% !important;
+        max-width: none !important;
+        font-size: 7.5px !important;
+        line-height: 1.75 !important;
+        letter-spacing: 0 !important;
+        margin: 0 !important;
+      }
+
+      .scene-closing {
+        margin-top: 32px !important;
+        padding: 0 12px !important;
+        font-size: 14px !important;
+        line-height: 1.7 !important;
+      }
+
+      .price-v2 {
+        padding: 58px 16px 44px !important;
+      }
+
+      .price-main-inner {
+        padding: 46px 20px 36px;
+      }
+
+      .price-main-amount {
+        gap: 4px;
+      }
+
+      .price-unit {
+        font-size: 22px;
+        padding-bottom: 9px;
+      }
+
+      .price-main-desc {
+        font-size: 15px;
+      }
+
+      .price-fee {
+        gap: 14px;
+      }
+
+      .price-fee-icon {
+        font-size: 30px;
+      }
+
+      .price-fee-label {
+        font-size: 12px;
+      }
+
+      .price-fee-amount {
+        font-size: 20px;
+      }
+
+      .envelope-section {
+        width: 100% !important;
+        min-height: 300px !important;
+        background-image: url("images/gift/ticket_base.png") !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        display: flex !important;
+        align-items: center !important;
+        overflow: hidden !important;
+      }
+
+      .envelope-overlay {
+        width: 100% !important;
+        min-height: 300px !important;
+        display: flex !important;
+        align-items: center !important;
+        background: linear-gradient(90deg,rgba(0,0,0,.98) 0%,rgba(0,0,0,.94) 28%,rgba(0,0,0,.70) 46%,rgba(0,0,0,.12) 68%,rgba(0,0,0,0) 100%) !important;
+      }
+
+      .envelope-content {
+        width: 47% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 30px 0 30px 22px !important;
+        text-align: left !important;
+      }
+
+      .envelope-eyebrow {
+        font-size: 17px !important;
+        line-height: 1.35 !important;
+        letter-spacing: .05em !important;
+        margin: 0 0 15px !important;
+        white-space: nowrap !important;
+      }
+
+      .envelope-small {
+        font-size: 10px !important;
+        line-height: 1.5 !important;
+        margin: 0 0 2px !important;
+      }
+
+      .envelope-price {
+        gap: 3px !important;
+        margin: 0 0 14px !important;
+      }
+
+      .envelope-price-num {
+        font-size: 39px !important;
+      }
+
+      .envelope-price-unit {
+        font-size: 15px !important;
+        padding-bottom: 5px !important;
+      }
+
+      .envelope-desc {
+        width: 100% !important;
+        max-width: 175px !important;
+        font-size: 8px !important;
+        line-height: 1.9 !important;
+        letter-spacing: .01em !important;
+        margin: 0 !important;
+      }
+    }
+  </style>
+
+
+<style id="usage-background-force">
+/* ギフトカードでご利用いただけること：背景画像を強制表示 */
+.section-usage {
+  background-color: transparent !important;
+  background-image: url("images/gift/konna.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center top !important;
+  background-size: 100% auto !important;
 }
 
-/* 画像・文章・画像・文章 */
-.scene-mosaic{
-  display: grid !important;
-  grid-template-columns: minmax(300px, 1.15fr) minmax(280px, .85fr) minmax(300px, 1.15fr) minmax(280px, .85fr) !important;
-  column-gap: 42px !important;
-  row-gap: 70px !important;
-  align-items: center !important;
-}
-
-/* PNGの形をそのまま全部表示 */
-.scene-photo-block{
-  width: 100% !important;
-  min-height: 0 !important;
-  height: auto !important;
+.section-usage .section-inner {
   background: transparent !important;
-  overflow: visible !important;
-  border-radius: 0 !important;
-  clip-path: none !important;
-  box-shadow: none !important;
 }
 
-.scene-photo-block.tl,
-.scene-photo-block.tr,
-.scene-photo-block.bl,
-.scene-photo-block.br{
-  border-radius: 0 !important;
-  clip-path: none !important;
+/* 内側に白背景が指定されていても消す */
+.section-usage .usage-wrap,
+.section-usage .usage-container,
+.section-usage .usage-grid {
+  background-color: transparent !important;
 }
 
-/* 画像を少し大きく */
-.scene-photo-block img{
-  width: 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: none !important;
-  object-fit: contain !important;
-  object-position: center !important;
-  display: block !important;
-}
-
-/* 文章側 */
-.scene-text-block{
-  min-height: 0 !important;
-  height: auto !important;
-  padding: 0 !important;
-  justify-content: center !important;
-}
-
-/* アイコン */
-.scene-text-block .scene-icon{
-  width: 48px !important;
-  height: 48px !important;
-  margin-bottom: 20px !important;
-}
-
-/* 見出し */
-.scene-text-block h3{
-  font-size: clamp(24px, 2vw, 32px) !important;
-  line-height: 1.5 !important;
-  margin-bottom: 16px !important;
-  white-space: normal !important;
-}
-
-/* 横線 */
-.scene-mini-rule{
-  max-width: 300px !important;
-  margin-bottom: 22px !important;
-}
-
-/* 本文を横に広げて改行を減らす */
-.scene-text-block p{
-  max-width: 320px !important;
-  font-size: 16px !important;
-  line-height: 2.05 !important;
-}
-
-/* タブレット */
-@media(max-width:1100px){
-  .scene-mosaic{
-    grid-template-columns: 1fr 1fr !important;
-    column-gap: 38px !important;
-    row-gap: 50px !important;
-  }
-}
-
-/* スマホ */
-@media(max-width:640px){
-  .scene-mosaic{
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-  }
-
-  .scene-photo-block{
-    margin-top: 28px !important;
-  }
-
-  .scene-text-block{
-    padding: 0 10px 30px !important;
-  }
-
-  .scene-text-block p{
-    max-width: none !important;
-  }
-}
-</style>
-
-
-<style id="price-v2-style">
-
-/* ===== 料金セクション ===== */
-
-.price-v2{
-  background:#050505 !important;
-  padding:80px 24px 64px !important;
-}
-
-.price-v2 .section-title{
-  color:#fff !important;
-  margin-bottom:48px !important;
-}
-
-.price-main-card{
-  max-width:760px;
-  margin:0 auto;
-  border:1px solid #b8975a;
-  padding:5px;
-  background:
-    radial-gradient(circle at 12% 55%, rgba(184,151,90,.12), transparent 24%),
-    linear-gradient(135deg,#140f09,#080706);
-}
-
-.price-main-inner{
-  position:relative;
-  padding:70px 80px 56px;
-  text-align:center;
-  border:1px solid rgba(184,151,90,.45);
-}
-
-.price-main-inner::before,
-.price-main-inner::after{
-  content:"";
-  position:absolute;
-  width:14px;
-  height:14px;
-  border-color:#b8975a;
-}
-
-.price-main-inner::before{
-  left:10px;
-  top:10px;
-  border-left:1px solid #b8975a;
-  border-top:1px solid #b8975a;
-}
-
-.price-main-inner::after{
-  right:10px;
-  bottom:10px;
-  border-right:1px solid #b8975a;
-  border-bottom:1px solid #b8975a;
-}
-
-.price-main-label{
-  color:#fff;
-  font-family:var(--font-serif);
-  font-size:22px;
-  margin-bottom:10px;
-}
-
-.price-main-amount{
-  display:flex;
-  justify-content:center;
-  align-items:flex-end;
-  gap:8px;
-  line-height:1;
-  margin-bottom:22px;
-}
-
-.price-yen{
-  color:#d6a65a;
-  font-family:var(--font-en);
-  font-size:clamp(66px,8vw,96px);
-  font-weight:400;
-}
-
-.price-unit{
-  color:#d6a65a;
-  font-family:var(--font-serif);
-  font-size:28px;
-  padding-bottom:12px;
-}
-
-.price-main-desc{
-  color:rgba(255,255,255,.88);
-  font-family:var(--font-serif);
-  font-size:18px;
-  letter-spacing:.08em;
-  margin-bottom:34px;
-}
-
-.price-main-rule{
-  height:1px;
-  background:linear-gradient(90deg,transparent,#b8975a 12%,#b8975a 88%,transparent);
-  margin-bottom:28px;
-}
-
-.price-fee{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:24px;
-}
-
-.price-fee-icon{
-  color:#d6a65a;
-  font-size:42px;
-  line-height:1;
-}
-
-.price-fee-label{
-  color:rgba(255,255,255,.78);
-  text-align:left;
-  font-size:14px;
-  margin-bottom:4px;
-}
-
-.price-fee-amount{
-  color:#d6a65a;
-  text-align:left;
-  font-family:var(--font-serif);
-  font-size:24px;
-}
-
-.price-fee-amount small{
-  color:rgba(255,255,255,.7);
-  font-size:12px;
-}
-
-
-/* ===== 封筒背景セクション ===== */
-
-.envelope-section{
-  width:100%;
-  min-height:520px;
-  background-image:url("images/gift/ticket_base.png");
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-  position:relative;
-  display:flex;
-  align-items:center;
-}
-
-.envelope-overlay{
-  width:100%;
-  min-height:520px;
-  display:flex;
-  align-items:center;
-  background:linear-gradient(
-    90deg,
-    rgba(0,0,0,.98) 0%,
-    rgba(0,0,0,.94) 20%,
-    rgba(0,0,0,.72) 38%,
-    rgba(0,0,0,.12) 62%,
-    rgba(0,0,0,0) 100%
-  );
-}
-
-.envelope-content{
-  width:100%;
-  max-width:1100px;
-  margin:0 auto;
-  padding:70px 24px;
-}
-
-.envelope-eyebrow{
-  color:#d6a65a;
-  font-family:var(--font-serif);
-  font-size:26px;
-  letter-spacing:.08em;
-  margin-bottom:22px;
-}
-
-.envelope-small{
-  color:#fff;
-  font-family:var(--font-serif);
-  font-size:16px;
-  margin-bottom:4px;
-}
-
-.envelope-price{
-  display:flex;
-  align-items:flex-end;
-  gap:5px;
-  margin-bottom:22px;
-}
-
-.envelope-price-num{
-  color:#d6a65a;
-  font-family:var(--font-en);
-  font-size:58px;
-  line-height:1;
-}
-
-.envelope-price-unit{
-  color:#d6a65a;
-  font-family:var(--font-serif);
-  font-size:24px;
-  padding-bottom:6px;
-}
-
-.envelope-desc{
-  color:rgba(255,255,255,.9);
-  font-family:var(--font-serif);
-  font-size:16px;
-  line-height:2;
-  letter-spacing:.05em;
-}
-
-
-/* ===== レスポンシブ ===== */
-
-@media(max-width:900px){
-
-  .price-main-inner{
-    padding:56px 32px 44px;
-  }
-
-  .envelope-section,
-  .envelope-overlay{
-    min-height:460px;
-  }
-
-  .envelope-section{
-    background-position:62% center;
-  }
-
-  .envelope-overlay{
-    background:linear-gradient(
-      90deg,
-      rgba(0,0,0,.96) 0%,
-      rgba(0,0,0,.84) 45%,
-      rgba(0,0,0,.25) 100%
-    );
-  }
-}
-
-@media(max-width:640px){
-
-  .price-v2{
-    padding:58px 16px 44px !important;
-  }
-
-  .price-main-inner{
-    padding:46px 20px 36px;
-  }
-
-  .price-main-amount{
-    gap:4px;
-  }
-
-  .price-unit{
-    font-size:22px;
-    padding-bottom:9px;
-  }
-
-  .price-main-desc{
-    font-size:15px;
-  }
-
-  .price-fee{
-    gap:14px;
-  }
-
-  .price-fee-icon{
-    font-size:30px;
-  }
-
-  .price-fee-label{
-    font-size:12px;
-  }
-
-  .price-fee-amount{
-    font-size:20px;
-  }
-
-  .envelope-section{
-    min-height:520px;
-    background-position:65% center;
-  }
-
-  .envelope-overlay{
-    min-height:520px;
-    align-items:flex-end;
-    background:linear-gradient(
-      0deg,
-      rgba(0,0,0,.98) 0%,
-      rgba(0,0,0,.92) 38%,
-      rgba(0,0,0,.25) 72%,
-      rgba(0,0,0,.05) 100%
-    );
-  }
-
-  .envelope-content{
-    padding:260px 24px 46px;
-  }
-
-  .envelope-eyebrow{
-    font-size:23px;
-  }
-
-  .envelope-desc{
-    font-size:14px;
-  }
-}
-
-</style>
-
-
-<style id="ticket-sp-fix">
-
-/* ===== スマホ専用 封筒セクション ===== */
+/* スマホでも同じ背景 */
 @media (max-width: 640px) {
-
-  .envelope-section {
-    width: 100% !important;
-    min-height: 0 !important;
-    aspect-ratio: 750 / 1334 !important;
-
-    background-image: url("images/gift/ticket_sp.png") !important;
-    background-size: 100% 100% !important;
+  .section-usage {
+    background-image: url("images/gift/konna.png") !important;
+    background-size: auto 100% !important;
     background-position: center top !important;
-    background-repeat: no-repeat !important;
-    background-color: #050505 !important;
-
-    display: block !important;
-    position: relative !important;
-    overflow: hidden !important;
-  }
-
-  /* 上部の文字を読みやすくする薄いグラデーション */
-  .envelope-section::before {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 0 !important;
-    pointer-events: none !important;
-
-    background:
-      linear-gradient(
-        180deg,
-        rgba(0,0,0,.66) 0%,
-        rgba(0,0,0,.48) 25%,
-        rgba(0,0,0,.16) 48%,
-        rgba(0,0,0,0) 62%
-      ) !important;
-  }
-
-  .envelope-overlay {
-    position: relative !important;
-    z-index: 1 !important;
-
-    width: 100% !important;
-    min-height: 0 !important;
-
-    display: block !important;
-    background: none !important;
-  }
-
-  .envelope-content {
-    width: 100% !important;
-    max-width: none !important;
-
-    margin: 0 !important;
-    padding: 54px 30px 0 !important;
-
-    text-align: left !important;
-  }
-
-  .envelope-eyebrow {
-    color: #d6a65a !important;
-    font-size: 25px !important;
-    font-weight: 400 !important;
-    line-height: 1.5 !important;
-    letter-spacing: .08em !important;
-
-    margin: 0 0 24px !important;
-  }
-
-  .envelope-small {
-    color: rgba(255,255,255,.92) !important;
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-    margin: 0 0 3px !important;
-  }
-
-  .envelope-price {
-    display: flex !important;
-    align-items: flex-end !important;
-    gap: 6px !important;
-
-    margin: 0 0 22px !important;
-  }
-
-  .envelope-price-num {
-    color: #dfa94d !important;
-    font-size: 62px !important;
-    line-height: 1 !important;
-  }
-
-  .envelope-price-unit {
-    color: #dfa94d !important;
-    font-size: 22px !important;
-    line-height: 1 !important;
-    padding-bottom: 8px !important;
-  }
-
-  .envelope-desc {
-    max-width: 290px !important;
-
-    color: rgba(255,255,255,.90) !important;
-    font-size: 13px !important;
-    line-height: 1.9 !important;
-    letter-spacing: .03em !important;
-
-    margin: 0 !important;
   }
 }
+</style>
 
+
+<style id="usage-background-force">
+/* ギフトカードでご利用いただけること：背景画像を強制表示 */
+.section-usage {
+  background-color: transparent !important;
+  background-image: url("images/gift/konna.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center top !important;
+  background-size: 100% auto !important;
+}
+
+.section-usage .section-inner {
+  background: transparent !important;
+}
+
+/* 内側に白背景が指定されていても消す */
+.section-usage .usage-wrap,
+.section-usage .usage-container,
+.section-usage .usage-grid {
+  background-color: transparent !important;
+}
+
+/* スマホでも同じ背景 */
+@media (max-width: 640px) {
+  .section-usage {
+    background-image: url("images/gift/konna.png") !important;
+    background-size: auto 100% !important;
+    background-position: center top !important;
+  }
+}
 </style>
 
 </head>
@@ -1604,42 +1783,74 @@
   <!-- ===== USAGE SECTION ===== -->
   <section class="section section-usage">
     <div class="section-inner">
-      <h2 class="section-title fade-in">ギフトカードでご利用いただけること</h2>
+      <h2 class="section-title fade-in">ギフトカードで<br class="usage-title-break">ご利用いただけること</h2>
+      <p class="usage-intro fade-in">サウナ・コワーキング・会議室・ドリンクなど、<br>館内サービス全般にご利用いただけます。</p>
 
       <div class="usage-grid">
-        <div class="usage-card fade-in">
-          <img class="usage-card-img"
-               src="images/gift/usage-sauna.jpg"
-               alt="プライベートサウナ">
-          <h3 class="usage-card-title">プライベートサウナ</h3>
-          <p class="usage-card-desc">完全個室のサウナで<br>心も体もリフレッシュ</p>
-        </div>
-        <div class="usage-card fade-in">
-          <img class="usage-card-img"
-               src="images/gift/usage-coworking.jpg"
-               alt="コワーキングスペース">
-          <h3 class="usage-card-title">コワーキングスペース</h3>
-          <p class="usage-card-desc">集中できる快適な<br>ワークスペース</p>
-        </div>
-        <div class="usage-card fade-in">
-          <img class="usage-card-img"
-               src="images/gift/usage-meeting.jpg"
-               alt="会議室">
-          <h3 class="usage-card-title">会議室</h3>
-          <p class="usage-card-desc">お打合せやミーティングに<br>ご利用いただけます</p>
-        </div>
-        <div class="usage-card fade-in">
-          <img class="usage-card-img"
-               src="images/gift/usage-drink.jpg"
-               alt="ドリンク">
-          <h3 class="usage-card-title">ドリンク</h3>
-          <p class="usage-card-desc">館内でご注文の<br>ドリンクのお支払い</p>
-        </div>
-      </div>
+        <article class="usage-card fade-in">
+          <div class="usage-card-media">
+            <img class="usage-card-img" src="images/gift/usage-sauna.jpg" alt="プライベートサウナ">
+            <span class="usage-card-num">01</span>
+          </div>
+          <div class="usage-card-body">
+            <div class="usage-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><path d="M18 44c0-8 6-14 14-14s14 6 14 14"/><circle cx="32" cy="22" r="7"/><path d="M23 10c-3 4 3 5 0 9M32 8c-3 4 3 5 0 9M41 10c-3 4 3 5 0 9M14 52h36"/></svg>
+            </div>
+            <div>
+              <h3 class="usage-card-title">プライベートサウナ</h3>
+              <p class="usage-card-desc">完全個室のサウナで<br>心も体もリフレッシュ</p>
+            </div>
+          </div>
+        </article>
 
-      <p class="usage-note fade-in">
-        サウナ・コワーキング・会議室・ドリンクなどの館内サービス全般にご利用いただけます。
-      </p>
+        <article class="usage-card fade-in">
+          <div class="usage-card-media">
+            <img class="usage-card-img" src="images/gift/usage-coworking.jpg" alt="コワーキングスペース">
+            <span class="usage-card-num">02</span>
+          </div>
+          <div class="usage-card-body">
+            <div class="usage-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><rect x="18" y="10" width="28" height="35" rx="5"/><path d="M22 49v7M42 49v7M14 32h40M14 32v20M50 32v20M20 52h24"/></svg>
+            </div>
+            <div>
+              <h3 class="usage-card-title">コワーキングスペース</h3>
+              <p class="usage-card-desc">集中できる快適な<br>ワークスペース</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="usage-card fade-in">
+          <div class="usage-card-media">
+            <img class="usage-card-img" src="images/gift/usage-meeting.jpg" alt="会議室">
+            <span class="usage-card-num">03</span>
+          </div>
+          <div class="usage-card-body">
+            <div class="usage-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><circle cx="20" cy="22" r="7"/><circle cx="44" cy="22" r="7"/><circle cx="32" cy="18" r="8"/><path d="M7 50c1-9 6-14 13-14s12 5 13 14M31 50c1-9 6-14 13-14s12 5 13 14M18 50c1-11 6-17 14-17s13 6 14 17"/></svg>
+            </div>
+            <div>
+              <h3 class="usage-card-title">会議室</h3>
+              <p class="usage-card-desc">お打合せやミーティングに<br>ご利用いただけます</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="usage-card fade-in">
+          <div class="usage-card-media">
+            <img class="usage-card-img" src="images/gift/usage-drink.jpg" alt="ドリンク">
+            <span class="usage-card-num">04</span>
+          </div>
+          <div class="usage-card-body">
+            <div class="usage-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><path d="M19 18h28l-4 36H23zM24 30h18M38 18l7-10"/></svg>
+            </div>
+            <div>
+              <h3 class="usage-card-title">ドリンク</h3>
+              <p class="usage-card-desc">館内でご注文の<br>ドリンクのお支払い</p>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -1647,7 +1858,7 @@
   <section class="section section-scene">
     <div class="section-inner">
 
-      <h2 class="scene-sample-title fade-in">こんな<span class="gold">シーン</span>で選ばれています</h2>
+      <h2 class="scene-sample-title fade-in">こんなシーンで選ばれています</h2>
       <div class="scene-title-rule fade-in"></div>
 
       <div class="scene-mosaic">
@@ -1763,59 +1974,48 @@
   </section>
 
   <!-- ===== PRICE SECTION ===== -->
+  <section class="section section-price price-v2">
+    <div class="section-inner">
+      <h2 class="section-title fade-in">料金について</h2>
 
-<section class="section section-price price-v2">
-  <div class="section-inner">
-
-    <h2 class="section-title fade-in">料金について</h2>
-
-    <div class="price-main-card fade-in">
-      <div class="price-main-inner">
-        <div class="price-main-label">1枚</div>
-
-        <div class="price-main-amount">
-          <span class="price-yen">5,000</span>
-          <span class="price-unit">円〜</span>
-        </div>
-
-        <p class="price-main-desc">お好きな枚数をご購入いただけます</p>
-
-        <div class="price-main-rule"></div>
-
-        <div class="price-fee">
-          <span class="price-fee-icon">✉</span>
-          <div>
-            <div class="price-fee-label">ギフト封筒・発行手数料として</div>
-            <div class="price-fee-amount">一律 550円 <small>（税込）</small></div>
+      <div class="price-main-card fade-in">
+        <div class="price-main-inner">
+          <div class="price-main-label">1枚</div>
+          <div class="price-main-amount">
+            <span class="price-yen">5,000</span>
+            <span class="price-unit">円〜</span>
+          </div>
+          <p class="price-main-desc">お好きな枚数をご購入いただけます</p>
+          <div class="price-main-rule"></div>
+          <div class="price-fee">
+            <span class="price-fee-icon" aria-hidden="true">✉</span>
+            <div>
+              <div class="price-fee-label">ギフト封筒・発行手数料として</div>
+              <div class="price-fee-amount">一律 550円 <small>（税込）</small></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
-
-<section class="envelope-section fade-in">
-  <div class="envelope-overlay">
-    <div class="envelope-content">
-      <p class="envelope-eyebrow">封筒の追加購入</p>
-
-      <p class="envelope-small">1枚につき</p>
-
-      <div class="envelope-price">
-        <span class="envelope-price-num">380</span>
-        <span class="envelope-price-unit">円</span>
+  <section class="envelope-section fade-in">
+    <div class="envelope-overlay">
+      <div class="envelope-content">
+        <p class="envelope-eyebrow">封筒の追加購入</p>
+        <p class="envelope-small">1枚につき</p>
+        <div class="envelope-price">
+          <span class="envelope-price-num">380</span>
+          <span class="envelope-price-unit">円</span>
+        </div>
+        <p class="envelope-desc">
+          一度のご購入で、<br>
+          複数名へお渡しいただけるよう、<br>
+          必要枚数分の封筒をご購入いただけます。
+        </p>
       </div>
-
-      <p class="envelope-desc">
-        一度のご購入で、<br>
-        複数名へお渡しいただけるよう、<br>
-        必要枚数分の封筒をご購入いただけます。
-      </p>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- ===== COUPON SECTION ===== -->
   <section class="section section-coupon">
@@ -1883,32 +2083,3 @@
 
 </body>
 </html>
-
-<style>
-/* シーン画像：PNGに入っている斜めデザインをそのまま全部表示 */
-.scene-photo-block {
-  background: transparent !important;
-  overflow: visible !important;
-  border-radius: 0 !important;
-  clip-path: none !important;
-  min-height: auto !important;
-}
-
-.scene-photo-block.tl,
-.scene-photo-block.tr,
-.scene-photo-block.bl,
-.scene-photo-block.br {
-  border-radius: 0 !important;
-  clip-path: none !important;
-}
-
-.scene-photo-block img {
-  width: 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  object-fit: contain !important;
-  object-position: center !important;
-  display: block !important;
-  border-radius: 0 !important;
-}
-</style>
