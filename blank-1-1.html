@@ -1415,6 +1415,119 @@
 
 </style>
 
+
+<style id="ticket-sp-fix">
+
+/* ===== スマホ専用 封筒セクション ===== */
+@media (max-width: 640px) {
+
+  .envelope-section {
+    width: 100% !important;
+    min-height: 0 !important;
+    aspect-ratio: 750 / 1334 !important;
+
+    background-image: url("images/gift/ticket_sp.png") !important;
+    background-size: 100% 100% !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-color: #050505 !important;
+
+    display: block !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  /* 上部の文字を読みやすくする薄いグラデーション */
+  .envelope-section::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0,0,0,.66) 0%,
+        rgba(0,0,0,.48) 25%,
+        rgba(0,0,0,.16) 48%,
+        rgba(0,0,0,0) 62%
+      ) !important;
+  }
+
+  .envelope-overlay {
+    position: relative !important;
+    z-index: 1 !important;
+
+    width: 100% !important;
+    min-height: 0 !important;
+
+    display: block !important;
+    background: none !important;
+  }
+
+  .envelope-content {
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+    padding: 54px 30px 0 !important;
+
+    text-align: left !important;
+  }
+
+  .envelope-eyebrow {
+    color: #d6a65a !important;
+    font-size: 25px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    letter-spacing: .08em !important;
+
+    margin: 0 0 24px !important;
+  }
+
+  .envelope-small {
+    color: rgba(255,255,255,.92) !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    margin: 0 0 3px !important;
+  }
+
+  .envelope-price {
+    display: flex !important;
+    align-items: flex-end !important;
+    gap: 6px !important;
+
+    margin: 0 0 22px !important;
+  }
+
+  .envelope-price-num {
+    color: #dfa94d !important;
+    font-size: 62px !important;
+    line-height: 1 !important;
+  }
+
+  .envelope-price-unit {
+    color: #dfa94d !important;
+    font-size: 22px !important;
+    line-height: 1 !important;
+    padding-bottom: 8px !important;
+  }
+
+  .envelope-desc {
+    max-width: 290px !important;
+
+    color: rgba(255,255,255,.90) !important;
+    font-size: 13px !important;
+    line-height: 1.9 !important;
+    letter-spacing: .03em !important;
+
+    margin: 0 !important;
+  }
+}
+
+</style>
+
 </head>
 <body>
 
