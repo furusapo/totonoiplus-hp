@@ -955,3 +955,127 @@
   }
 }
 </style>
+
+
+<style id="mobile-scenes-force-grid">
+/* ===== MOBILE SCENES：強制2列×2段 ===== */
+@media (max-width: 760px) {
+
+  .scenes__grid,
+  .scenes-grid,
+  .scene-grid,
+  .scene-list,
+  .scenes-list,
+  .scenes .grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: auto auto !important;
+    gap: 28px 12px !important;
+    width: 100% !important;
+  }
+
+  .scenes__item,
+  .scene-item,
+  .scene-card,
+  .scenes-card {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+
+  .scenes__item img,
+  .scene-item img,
+  .scene-card img,
+  .scenes-card img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 0 12px !important;
+  }
+
+  .scenes__item h3,
+  .scene-item h3,
+  .scene-card h3,
+  .scenes-card h3 {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    margin: 0 0 8px !important;
+  }
+
+  .scenes__item p,
+  .scene-item p,
+  .scene-card p,
+  .scenes-card p {
+    font-size: 11px !important;
+    line-height: 1.7 !important;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const titles = [
+    "誕生日に",
+    "お祝い・お返しに",
+    "接待・ゴルフコンペに",
+    "表彰・福利厚生に"
+  ];
+
+  const headings = [...document.querySelectorAll("h2,h3,h4")];
+
+  const cards = titles.map(title => {
+    const h = headings.find(el =>
+      el.textContent.replace(/\s/g,"").includes(title.replace(/\s/g,""))
+    );
+    if (!h) return null;
+
+    let el = h;
+    while (
+      el.parentElement &&
+      !el.parentElement.querySelector("img")
+    ) {
+      el = el.parentElement;
+    }
+
+    return el.parentElement || el;
+  }).filter(Boolean);
+
+  if (cards.length === 4) {
+    const unique = [...new Set(cards)];
+
+    if (unique.length === 4) {
+      const parent = unique[0].parentElement;
+
+      if (unique.every(el => el.parentElement === parent)) {
+        parent.classList.add("mobile-force-scene-grid");
+        unique.forEach(el => el.classList.add("mobile-force-scene-card"));
+      }
+    }
+  }
+});
+</script>
+
+<style>
+@media (max-width:760px){
+  .mobile-force-scene-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:28px 12px !important;
+    width:100% !important;
+  }
+
+  .mobile-force-scene-card{
+    display:block !important;
+    width:100% !important;
+    max-width:none !important;
+    min-width:0 !important;
+    margin:0 !important;
+  }
+
+  .mobile-force-scene-card img{
+    width:100% !important;
+    height:auto !important;
+  }
+}
+</style>
