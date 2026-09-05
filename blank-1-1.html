@@ -1094,3 +1094,39 @@ main{
   padding-top:0 !important;
 }
 </style>
+
+<style id="header-layer-fix">
+/* ヘッダーの後ろにHEROの文字・画像を透けさせない */
+.header{
+  position:relative !important;
+  z-index:9999 !important;
+  background:#090909 !important;
+  opacity:1 !important;
+  isolation:isolate !important;
+}
+
+.header::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:#090909;
+  opacity:1;
+}
+
+.header__inner{
+  position:relative;
+  z-index:2;
+}
+
+/* HEROはヘッダーより必ず下のレイヤー */
+.hero{
+  position:relative !important;
+  z-index:1 !important;
+}
+
+.hero__photo,
+.hero__content{
+  z-index:1 !important;
+}
+</style>
