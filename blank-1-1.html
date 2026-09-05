@@ -1277,6 +1277,29 @@ button{font:inherit}
 }
 </style>
 
+
+<style id="price-message-above-contact-final">
+/* 「大切な思いが〜」を購入相談の四角い枠の直上・画面中央へ */
+.price-message-contact-wrap{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-sizing:border-box;
+  background:#000;
+  padding:clamp(1.8rem,4vw,3.5rem) 4vw clamp(.9rem,2vw,1.5rem);
+}
+.price-message-contact-wrap .price-layout-final__message{
+  position:static !important;
+  width:auto !important;
+  max-width:100% !important;
+  margin:0 !important;
+  transform:none !important;
+  text-align:center !important;
+  color:var(--gold-light,#e4c778);
+}
+</style>
+
 </head>
 <body>
 <header class="header">
@@ -1427,9 +1450,7 @@ button{font:inherit}
           </div>
         </dl>
 
-        <p class="price-layout-final__message">
-          大切な思いが、特別な時間につながりますように。
-        </p>
+        
       </div>
 
       <div class="price-layout-final__visual">
@@ -1446,7 +1467,13 @@ button{font:inherit}
 <section class="purchase-contact section">
   <div class="container">
     <div class="purchase-contact__panel">
-      <div class="purchase-contact__heading">
+      
+<div class="price-message-contact-wrap">
+<p class="price-layout-final__message">
+          大切な思いが、特別な時間につながりますように。
+        </p>
+</div>
+<div class="purchase-contact__heading">
         <h2>ご購入のご相談はこちら</h2>
         <span class="purchase-contact__divider" aria-hidden="true"></span>
         <p>お気軽に<br>お問い合わせください。</p>
