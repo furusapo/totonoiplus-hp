@@ -329,6 +329,112 @@ button{font:inherit}
   .coupon-images{grid-template-columns:1fr}
 }
 </style>
+
+<style id="hero-mobile-balance-final">
+@media (max-width:640px){
+  /* HERO全体の高さと写真・文字の比率を調整 */
+  .hero{
+    min-height:650px !important;
+    align-items:flex-end !important;
+  }
+
+  .hero__photo{
+    top:var(--header-h) !important;
+    width:100% !important;
+    bottom:0 !important;
+  }
+
+  .hero__photo img{
+    object-position:50% 24% !important;
+    opacity:.76 !important;
+  }
+
+  .hero__photo::after{
+    background:
+      linear-gradient(180deg,
+        rgba(13,13,13,.06) 0%,
+        rgba(13,13,13,.12) 30%,
+        rgba(13,13,13,.48) 58%,
+        rgba(13,13,13,.90) 88%,
+        #0d0d0d 100%
+      ),
+      linear-gradient(90deg,
+        rgba(13,13,13,.30) 0%,
+        rgba(13,13,13,.10) 60%,
+        rgba(13,13,13,.06) 100%
+      ) !important;
+  }
+
+  .hero__content{
+    width:100% !important;
+    padding:220px 0 34px !important;
+  }
+
+  .new-badge{
+    margin-bottom:12px !important;
+  }
+
+  .new-badge img{
+    width:clamp(88px,24vw,112px) !important;
+    max-height:66px !important;
+  }
+
+  .hero h1{
+    font-size:clamp(25px,7.2vw,31px) !important;
+    line-height:1.5 !important;
+    letter-spacing:.025em !important;
+    margin-bottom:14px !important;
+    max-width:100% !important;
+  }
+
+  .hero__eyebrow{
+    font-size:14px !important;
+    letter-spacing:.20em !important;
+    margin-bottom:18px !important;
+  }
+
+  /* 問い合わせボタンを小さくして横並び */
+  .hero__buttons{
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:nowrap !important;
+    gap:10px !important;
+    align-items:stretch !important;
+  }
+
+  .hero__buttons .cta{
+    flex:1 1 0 !important;
+    width:auto !important;
+    min-width:0 !important;
+    min-height:46px !important;
+    padding:9px 10px !important;
+    gap:7px !important;
+    font-size:11px !important;
+    line-height:1.35 !important;
+    white-space:nowrap !important;
+  }
+
+  .hero__buttons .cta svg{
+    width:17px !important;
+    height:17px !important;
+    flex:0 0 auto !important;
+  }
+}
+
+/* かなり細い画面でも2ボタンを横並び維持 */
+@media (max-width:390px){
+  .hero__buttons{
+    gap:7px !important;
+  }
+
+  .hero__buttons .cta{
+    padding:8px 7px !important;
+    font-size:10px !important;
+    letter-spacing:0 !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <header class="header">
