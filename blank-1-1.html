@@ -493,6 +493,42 @@ button{font:inherit}
 }
 </style>
 
+
+<style id="cta-hover-final">
+/* 問い合わせボタン：マウスオーバーを明確に */
+.hero__buttons .cta{
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    background-color .22s ease,
+    color .22s ease,
+    border-color .22s ease,
+    filter .22s ease !important;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .hero__buttons .cta:hover{
+    transform:translateY(-3px) !important;
+  }
+
+  .hero__buttons .cta--phone:hover{
+    background:var(--gold-bright) !important;
+    color:#111 !important;
+    border-color:var(--gold-bright) !important;
+    box-shadow:0 8px 24px rgba(245,203,92,.28) !important;
+  }
+
+  .hero__buttons .cta--line:hover{
+    filter:brightness(1.12) !important;
+    box-shadow:0 8px 24px rgba(6,199,85,.30) !important;
+  }
+}
+
+.hero__buttons .cta:active{
+  transform:translateY(0) scale(.98) !important;
+}
+</style>
+
 </head>
 <body>
 <header class="header">
