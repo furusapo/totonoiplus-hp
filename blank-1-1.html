@@ -1189,6 +1189,34 @@ button{font:inherit}
 }
 </style>
 
+
+<style id="price-message-centered-final">
+/* 「大切な思いが〜」をセクション全体の中央へ */
+.price-layout-final__message{
+  position:absolute !important;
+  left:50% !important;
+  bottom:4% !important;
+  width:max-content !important;
+  max-width:90% !important;
+  margin:0 !important;
+  transform:translateX(-50%) !important;
+  text-align:center !important;
+}
+.price-layout-final{
+  position:relative !important;
+  padding-bottom:8% !important;
+}
+@media (max-width:768px){
+  .price-layout-final__message{
+    bottom:2.5% !important;
+    width:90% !important;
+  }
+  .price-layout-final{
+    padding-bottom:12% !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <header class="header">
