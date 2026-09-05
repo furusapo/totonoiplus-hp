@@ -1257,3 +1257,79 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 }
 </style>
+
+<style id="price-ticket-base-correct-final">
+/* ===== 料金について：ticket_base.png を全面背景として使用 ===== */
+.price-layout-final{
+  position:relative !important;
+  overflow:hidden !important;
+  background:#000 url('images/gift/ticket_base.png') center center / cover no-repeat !important;
+}
+
+/* 右側に別画像として置いていた要素は非表示 */
+.price-layout-final__visual{
+  display:none !important;
+}
+
+/* 背景画像の上に料金テキストを配置 */
+.price-layout-final .container{
+  position:relative !important;
+  z-index:2 !important;
+}
+
+.price-layout-final__grid{
+  display:block !important;
+  min-height:auto !important;
+}
+
+.price-layout-final__copy{
+  position:relative !important;
+  z-index:2 !important;
+  width:46% !important;
+  padding-block:7vw !important;
+}
+
+/* 左側だけ読みやすく黒を足す */
+.price-layout-final::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(
+    90deg,
+    rgba(0,0,0,.98) 0%,
+    rgba(0,0,0,.92) 24%,
+    rgba(0,0,0,.58) 46%,
+    rgba(0,0,0,.10) 68%,
+    transparent 100%
+  );
+}
+
+@media(max-width:760px){
+  .price-layout-final{
+    background-size:cover !important;
+    background-position:center center !important;
+  }
+
+  .price-layout-final .container{
+    width:92% !important;
+  }
+
+  .price-layout-final__copy{
+    width:52% !important;
+    padding-block:10vw !important;
+  }
+
+  .price-layout-final::before{
+    background:linear-gradient(
+      90deg,
+      rgba(0,0,0,.98) 0%,
+      rgba(0,0,0,.94) 34%,
+      rgba(0,0,0,.60) 58%,
+      rgba(0,0,0,.12) 82%,
+      transparent 100%
+    ) !important;
+  }
+}
+</style>
