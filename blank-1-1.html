@@ -1249,6 +1249,34 @@ button{font:inherit}
 }
 </style>
 
+
+<style id="price-message-viewport-centered-final">
+/* 文言を「左カラム」ではなく画面全体に対して中央配置 */
+.price-layout-final__message{
+  position:relative !important;
+  width:100vw !important;
+  max-width:none !important;
+  margin-top:2.2rem !important;
+  margin-left:calc(50% - 50vw) !important;
+  margin-right:calc(50% - 50vw) !important;
+  left:auto !important;
+  right:auto !important;
+  bottom:auto !important;
+  transform:none !important;
+  text-align:center !important;
+  box-sizing:border-box !important;
+}
+
+@media(max-width:768px){
+  .price-layout-final__message{
+    width:100vw !important;
+    margin-left:calc(50% - 50vw) !important;
+    margin-right:calc(50% - 50vw) !important;
+    text-align:center !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <header class="header">
