@@ -879,6 +879,110 @@
       raf = requestAnimationFrame(frame);
     })();
     </script>
+
+<!-- SCENE-MOBILE-2X2-FINAL -->
+<style>
+@media (max-width: 760px){
+
+  /* JSで特定した4つを2列×2段にする */
+  .scene-mobile-2x2-final{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-template-rows:auto auto !important;
+    column-gap:14px !important;
+    row-gap:28px !important;
+    width:100% !important;
+    max-width:100% !important;
+    align-items:start !important;
+  }
+
+  .scene-mobile-2x2-final > .scene-mobile-card-final{
+    display:block !important;
+    position:relative !important;
+    width:100% !important;
+    max-width:none !important;
+    min-width:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  .scene-mobile-card-final img{
+    width:100% !important;
+    max-width:100% !important;
+    height:auto !important;
+    object-fit:contain !important;
+    margin:0 0 12px !important;
+  }
+
+  .scene-mobile-card-final h3,
+  .scene-mobile-card-final h4{
+    font-size:15px !important;
+    line-height:1.55 !important;
+    margin:0 0 8px !important;
+  }
+
+  .scene-mobile-card-final p{
+    font-size:11px !important;
+    line-height:1.75 !important;
+    margin:0 !important;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+
+  const names = [
+    '誕生日に',
+    'お祝い・お返しに',
+    '接待・ゴルフコンペに',
+    '表彰・福利厚生に'
+  ];
+
+  const norm = s => (s || '').replace(/\s+/g,'');
+
+  const headingFor = name =>
+    [...document.querySelectorAll('h2,h3,h4,h5')]
+      .find(el => norm(el.textContent).includes(norm(name)));
+
+  const headings = names.map(headingFor);
+
+  if (headings.some(x => !x)) return;
+
+  /* 4見出しに共通する一番近い親を探す */
+  let common = headings[0].parentElement;
+
+  while(common && !headings.every(h => common.contains(h))){
+    common = common.parentElement;
+  }
+
+  if(!common) return;
+
+  /* 共通親の直下で、それぞれの見出しを含むカードを取得 */
+  const cards = headings.map(h => {
+    let node = h;
+
+    while(
+      node.parentElement &&
+      node.parentElement !== common
+    ){
+      node = node.parentElement;
+    }
+
+    return node;
+  });
+
+  if(new Set(cards).size !== 4) return;
+
+  common.classList.add('scene-mobile-2x2-final');
+
+  cards.forEach(card => {
+    card.classList.add('scene-mobile-card-final');
+  });
+
+});
+</script>
+
 </body>
 </html>
 
