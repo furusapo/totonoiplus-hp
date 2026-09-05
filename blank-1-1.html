@@ -978,6 +978,90 @@ button{font:inherit}
 }
 </style>
 
+
+<style id="price-spacing-stylish-final">
+/* ===== 料金セクション：5000円を少し小さく、余白をスタイリッシュに ===== */
+.price-layout-final__copy{
+  width:41% !important;
+}
+
+.price-layout-final__amount{
+  font-size:clamp(3.8rem,6.6vw,6.3rem) !important;
+  margin:1.6rem 0 1.7rem !important;
+  letter-spacing:.01em !important;
+}
+
+.price-layout-final h2{
+  margin-bottom:2rem !important;
+}
+
+.price-layout-final__lead{
+  margin-bottom:1.4rem !important;
+  line-height:2.15 !important;
+}
+
+.price-layout-final__note{
+  margin-top:1.5rem !important;
+}
+
+.price-layout-final__rule{
+  margin:2.4rem 0 1.8rem !important;
+}
+
+.price-layout-final__fees{
+  gap:1.05rem !important;
+}
+
+.price-layout-final__message{
+  margin-top:2.6rem !important;
+  letter-spacing:.11em !important;
+}
+
+/* 左右の呼吸を増やす */
+.price-layout-final .container{
+  width:min(var(--max),calc(100% - 7vw)) !important;
+}
+
+/* スマホも比率ベースで余白調整 */
+@media(max-width:760px){
+  .price-layout-final .container{
+    width:90% !important;
+  }
+
+  .price-layout-final__copy{
+    width:49% !important;
+    padding-top:9vw !important;
+  }
+
+  .price-layout-final__amount{
+    font-size:9vw !important;
+    margin:3.2vw 0 3.6vw !important;
+  }
+
+  .price-layout-final h2{
+    margin-bottom:3.8vw !important;
+  }
+
+  .price-layout-final__lead{
+    margin-bottom:3vw !important;
+    line-height:1.95 !important;
+  }
+
+  .price-layout-final__rule{
+    margin:4.5vw 0 3.5vw !important;
+  }
+
+  .price-layout-final__fees{
+    gap:2.3vw !important;
+  }
+
+  .price-layout-final__message{
+    margin-top:4.8vw !important;
+    letter-spacing:.08em !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <header class="header">
