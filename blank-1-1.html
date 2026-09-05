@@ -1337,6 +1337,232 @@ button{font:inherit}
 }
 </style>
 
+
+<style id="coupon-light-redesign-final">
+/* ===== 回数券セクション：白ベースの上品なデザイン ===== */
+.coupon-light{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(204,184,148,.12), transparent 18%),
+    radial-gradient(circle at 92% 85%, rgba(204,184,148,.10), transparent 20%),
+    linear-gradient(180deg,#fbf8f3 0%,#f5f0e8 100%) !important;
+  color:#2c2925 !important;
+}
+
+.coupon-light .container{
+  width:min(var(--max),calc(100% - 8vw));
+}
+
+.coupon-light__eyebrow{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1.2rem;
+  margin-bottom:1.3rem;
+  font-family:var(--en);
+  font-size:clamp(.75rem,1.2vw,1rem);
+  letter-spacing:.34em;
+  color:#9a7840;
+}
+
+.coupon-light__eyebrow::before,
+.coupon-light__eyebrow::after{
+  content:"";
+  width:clamp(3rem,8vw,7rem);
+  height:1px;
+  background:rgba(154,120,64,.45);
+}
+
+.coupon-light__title{
+  text-align:center;
+  font-family:var(--serif);
+  font-size:clamp(2rem,4vw,3.8rem);
+  font-weight:400;
+  line-height:1.45;
+  color:#2c2925;
+}
+
+.coupon-light__headline{
+  margin-top:.8rem;
+  text-align:center;
+  font-family:var(--serif);
+  font-size:clamp(1.4rem,2.6vw,2.6rem);
+  line-height:1.5;
+  color:#2c2925;
+}
+
+.coupon-light__headline span{
+  color:#a67d3f;
+}
+
+.coupon-light__images{
+  margin-top:clamp(2.5rem,5vw,4.5rem);
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(.7rem,1.2vw,1.1rem);
+}
+
+.coupon-light__images img{
+  width:100%;
+  aspect-ratio:1.18 / 1;
+  object-fit:cover;
+  border-radius:2px;
+}
+
+.coupon-light__benefits{
+  margin:clamp(2rem,4vw,3rem) auto 0;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  max-width:900px;
+  border-top:1px solid rgba(154,120,64,.25);
+  border-bottom:1px solid rgba(154,120,64,.25);
+}
+
+.coupon-light__benefits > div{
+  min-width:0;
+  padding:clamp(1.2rem,2.5vw,2rem);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(.7rem,1.2vw,1rem);
+}
+
+.coupon-light__benefits > div + div{
+  border-left:1px solid rgba(154,120,64,.25);
+}
+
+.coupon-light__icon{
+  flex:0 0 auto;
+  font-size:clamp(1.5rem,2.4vw,2rem);
+  color:#a67d3f;
+}
+
+.coupon-light__benefits p{
+  margin:0;
+  font-family:var(--serif);
+  font-size:clamp(.8rem,1.3vw,1rem);
+  line-height:1.7;
+  color:#514b44;
+}
+
+.coupon-light__cta-wrap{
+  margin-top:clamp(2rem,4vw,3rem);
+  display:flex;
+  justify-content:center;
+}
+
+.coupon-light__btn{
+  width:min(650px,82%);
+  min-height:64px;
+  padding:1rem 1.6rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:2rem;
+  background:#1a1917;
+  border:1px solid #a67d3f;
+  color:#fff;
+  font-family:var(--serif);
+  font-size:clamp(1rem,1.6vw,1.3rem);
+  letter-spacing:.08em;
+  transition:transform .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .coupon-light__btn:hover{
+    transform:translateY(-2px);
+    background:#24211d;
+    box-shadow:0 10px 28px rgba(166,125,63,.18);
+  }
+}
+
+.coupon-light__online{
+  margin-top:1.8rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1rem;
+  font-family:var(--en);
+  font-size:.8rem;
+  letter-spacing:.30em;
+  color:#a67d3f;
+}
+
+.coupon-light__online::before,
+.coupon-light__online::after{
+  content:"";
+  width:70px;
+  height:1px;
+  background:rgba(154,120,64,.35);
+}
+
+.coupon-light__note{
+  margin-top:.8rem !important;
+  margin-bottom:0 !important;
+  text-align:center;
+  font-family:var(--serif);
+  font-size:clamp(.75rem,1.1vw,.95rem) !important;
+  color:#6b645b !important;
+}
+
+@media(max-width:760px){
+  .coupon-light{
+    padding-block:10vw !important;
+  }
+
+  .coupon-light .container{
+    width:92%;
+  }
+
+  .coupon-light__title{
+    font-size:6vw;
+  }
+
+  .coupon-light__headline{
+    font-size:4.6vw;
+  }
+
+  .coupon-light__images{
+    margin-top:6vw;
+    gap:2vw;
+  }
+
+  .coupon-light__benefits{
+    margin-top:5vw;
+  }
+
+  .coupon-light__benefits > div{
+    padding:3vw 2vw;
+    gap:2vw;
+  }
+
+  .coupon-light__icon{
+    font-size:4.5vw;
+  }
+
+  .coupon-light__benefits p{
+    font-size:2.4vw;
+  }
+
+  .coupon-light__btn{
+    width:86%;
+    min-height:0;
+    padding:3.5vw 4vw;
+    font-size:3.3vw;
+  }
+
+  .coupon-light__online{
+    margin-top:4vw;
+    font-size:2.2vw;
+  }
+
+  .coupon-light__note{
+    font-size:2.4vw !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <header class="header">
@@ -1534,12 +1760,46 @@ button{font:inherit}
   </div>
 </section>
 
-<section class="section coupon">
-<div class="container coupon-grid">
-<div class="fade-in"><div class="coupon-eyebrow">よくご利用いただくお客様へ</div><h2>お得な回数券も<br/>ご用意しております</h2><p>現在は予約サイトよりご購入いただけます</p><a class="coupon-btn" href="https://totonoiplus.stores.jp/reserve/omiya/products#pageContent" rel="noopener" target="_blank">回数券を詳しく見る ▶</a></div>
-<div class="coupon-images fade-in"><img alt="120分8回チケット" src="images/gift/ticket-01.jpg"/><img alt="90分8回チケット" src="images/gift/ticket-02.jpg"/><img alt="回数券" src="images/gift/ticket-03.jpg"/></div>
-</div>
+
+<section class="section coupon coupon-light">
+  <div class="container">
+    <div class="coupon-light__eyebrow">FOR REGULAR GUESTS</div>
+    <h2 class="coupon-light__title">よくご利用いただくお客様へ</h2>
+    <p class="coupon-light__headline">お得な<span>回数券</span>もご用意しております。</p>
+
+    <div class="coupon-light__images fade-in">
+      <img alt="120分8回チケット" src="images/gift/ticket-01.jpg"/>
+      <img alt="90分8回チケット" src="images/gift/ticket-02.jpg"/>
+      <img alt="回数券" src="images/gift/ticket-03.jpg"/>
+    </div>
+
+    <div class="coupon-light__benefits">
+      <div>
+        <div class="coupon-light__icon" aria-hidden="true">◫</div>
+        <p>自分のペースで<br>通える</p>
+      </div>
+      <div>
+        <div class="coupon-light__icon" aria-hidden="true">◎</div>
+        <p>1回あたりの<br>料金がお得に</p>
+      </div>
+      <div>
+        <div class="coupon-light__icon" aria-hidden="true">♡</div>
+        <p>日常に、<br>ととのう習慣を</p>
+      </div>
+    </div>
+
+    <div class="coupon-light__cta-wrap">
+      <a class="coupon-light__btn" href="https://totonoiplus.stores.jp/reserve/omiya/products#pageContent" rel="noopener" target="_blank">
+        <span>回数券を購入する</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <div class="coupon-light__online">ONLINE ONLY</div>
+    <p class="coupon-light__note">現在は予約サイトよりご購入いただけます。</p>
+  </div>
 </section>
+
 </main>
 <footer class="footer">
 <div class="container"><div class="footer__logo"><img alt="ととのい＋" src="https://static.wixstatic.com/media/ebce77_ecb546d8c040451eb010076598be3bb3~mv2.png/v1/fill/w_200,h_52,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/totonoiplus_logo_white.png"/></div><nav class="footer__nav"><a href="index.html">Home</a><a href="sauna.html">Sauna</a><a href="coworking.html">Co-working Space</a><a href="rentaloffice.html">Rental Office</a><a href="forcorporations.html">法人様向け</a><a href="news.html">News</a><a href="recruit.html">Recruit</a><a href="faq.html">Q&amp;A</a><a href="about.html">Company</a><a href="contact.html">Contact</a><a href="privacypolicy.html">Privacy Policy</a></nav><p class="footer__copy">© 2024 ととのい＋ All Rights Reserved.</p></div>
