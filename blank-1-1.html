@@ -1217,6 +1217,38 @@ button{font:inherit}
 }
 </style>
 
+
+<style id="price-message-flow-fixed-final">
+/* 「大切な思いが〜」は料金情報の下で、重ならず中央揃え */
+.price-layout-final__message{
+  position:static !important;
+  left:auto !important;
+  bottom:auto !important;
+  transform:none !important;
+  width:100% !important;
+  max-width:none !important;
+  margin:2.2rem 0 0 !important;
+  text-align:center !important;
+}
+
+/* 前回追加した余計な下余白を解除 */
+.price-layout-final{
+  padding-bottom:0 !important;
+}
+
+@media(max-width:768px){
+  .price-layout-final__message{
+    width:100% !important;
+    margin-top:4vw !important;
+    text-align:center !important;
+  }
+
+  .price-layout-final{
+    padding-bottom:0 !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <header class="header">
