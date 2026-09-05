@@ -560,6 +560,164 @@ button{font:inherit}
 }
 </style>
 
+
+<style id="coupon-black-background-final">
+/* 回数券セクションの背景を黒に */
+.coupon{
+  background:#000 !important;
+}
+</style>
+
+
+<style id="purchase-flow-final">
+/* ===== ご購入の流れ ===== */
+.purchase-flow{
+  background:#0b0b0b;
+  color:#fff;
+  overflow:hidden;
+}
+
+.purchase-flow .section-title{
+  color:var(--gold-light);
+}
+
+.purchase-flow__lead{
+  margin-top:18px;
+  text-align:center;
+  font-family:var(--serif);
+  font-size:14px;
+  letter-spacing:.06em;
+  color:rgba(255,255,255,.58);
+}
+
+.purchase-flow__row{
+  margin-top:52px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);
+  gap:clamp(14px,2vw,28px);
+  align-items:stretch;
+}
+
+.purchase-card{
+  position:relative;
+  min-width:0;
+  min-height:300px;
+  padding:34px 28px 30px;
+  border:1px solid rgba(197,160,90,.48);
+  background:
+    radial-gradient(circle at 15% 8%,rgba(228,199,120,.08),transparent 28%),
+    linear-gradient(145deg,#12110f,#0c0c0b);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+
+.purchase-card__num{
+  width:74px;
+  aspect-ratio:1;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  margin-bottom:24px;
+  background:linear-gradient(145deg,#e5c873,#b88935);
+  color:#fff;
+  font-family:var(--en);
+  font-size:30px;
+  line-height:1;
+  box-shadow:0 8px 24px rgba(197,160,90,.15);
+}
+
+.purchase-card__icon{
+  width:46px;
+  height:46px;
+  margin-bottom:18px;
+  color:var(--gold-light);
+}
+
+.purchase-card__icon svg{
+  width:100%;
+  height:100%;
+  stroke:currentColor;
+}
+
+.purchase-card h3{
+  font-family:var(--serif);
+  font-size:23px;
+  font-weight:400;
+  line-height:1.5;
+  color:#fff;
+  margin-bottom:14px;
+}
+
+.purchase-card p{
+  font-family:var(--serif);
+  font-size:14px;
+  line-height:1.95;
+  color:rgba(255,255,255,.72);
+}
+
+.purchase-flow__arrow{
+  align-self:center;
+  color:var(--gold-light);
+  font-size:clamp(32px,3.2vw,50px);
+  line-height:1;
+  transform:translateY(-2px);
+  opacity:.9;
+}
+
+/* スマホでも3枚を横並びのまま維持 */
+@media(max-width:760px){
+  .purchase-flow__row{
+    width:100%;
+    margin-top:34px;
+    grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);
+    gap:1.6vw;
+  }
+
+  .purchase-card{
+    min-height:0;
+    padding:4vw 2.4vw 4.5vw;
+  }
+
+  .purchase-card__num{
+    width:12vw;
+    max-width:52px;
+    min-width:38px;
+    margin-bottom:3vw;
+    font-size:clamp(18px,5vw,24px);
+  }
+
+  .purchase-card__icon{
+    width:8vw;
+    height:8vw;
+    max-width:36px;
+    max-height:36px;
+    min-width:26px;
+    min-height:26px;
+    margin-bottom:2.5vw;
+  }
+
+  .purchase-card h3{
+    font-size:clamp(11px,3.2vw,15px);
+    margin-bottom:2vw;
+  }
+
+  .purchase-card p{
+    font-size:clamp(7.5px,2.15vw,10px);
+    line-height:1.7;
+  }
+
+  .purchase-flow__arrow{
+    font-size:clamp(18px,5vw,28px);
+  }
+
+  .purchase-flow__lead{
+    font-size:clamp(10px,2.8vw,13px);
+  }
+}
+</style>
+
 </head>
 <body>
 <header class="header">
@@ -627,6 +785,59 @@ button{font:inherit}
 </div>
 </div>
 </section>
+
+<section class="purchase-flow section">
+  <div class="container">
+    <h2 class="section-title">ご購入の流れ</h2>
+    <p class="purchase-flow__lead">お問い合わせからお受け取りまで、3ステップでご案内します。</p>
+
+    <div class="purchase-flow__row">
+      <article class="purchase-card fade-in">
+        <div class="purchase-card__num">01</div>
+        <div class="purchase-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke-width="1.8">
+            <path d="M15 9h18a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-8 6v-6h-1a4 4 0 0 1-4-4V13a4 4 0 0 1 4-4h2Z"/>
+            <path d="M16 18h16M16 24h11"/>
+          </svg>
+        </div>
+        <h3>お問い合わせ</h3>
+        <p>お電話または公式LINEより、ギフトカードご購入の旨をご連絡ください。</p>
+      </article>
+
+      <div class="purchase-flow__arrow" aria-hidden="true">→</div>
+
+      <article class="purchase-card fade-in">
+        <div class="purchase-card__num">02</div>
+        <div class="purchase-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke-width="1.8">
+            <rect x="9" y="11" width="30" height="26" rx="2"/>
+            <path d="M15 18h18M15 24h18M15 30h11"/>
+            <path d="M31 8v6M17 8v6"/>
+          </svg>
+        </div>
+        <h3>内容を確認</h3>
+        <p>デザイン・金額・枚数など、ご希望の内容を確認させていただきます。</p>
+      </article>
+
+      <div class="purchase-flow__arrow" aria-hidden="true">→</div>
+
+      <article class="purchase-card fade-in">
+        <div class="purchase-card__num">03</div>
+        <div class="purchase-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke-width="1.8">
+            <path d="M8 18h32v21H8z"/>
+            <path d="M6 12h36v8H6z"/>
+            <path d="M24 12v27"/>
+            <path d="M24 12c-4-7-11-7-11-2 0 3 4 4 11 2Zm0 0c4-7 11-7 11-2 0 3-4 4-11 2Z"/>
+          </svg>
+        </div>
+        <h3>お支払い・お渡し</h3>
+        <p>基本は店頭でお支払いいただき、その場で商品をお渡しします。ご希望があれば発送も承ります。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section class="section price">
 <div class="container">
 <h2 class="section-title fade-in">料金について</h2>
