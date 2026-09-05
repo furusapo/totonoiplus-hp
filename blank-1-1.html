@@ -1062,6 +1062,120 @@ button{font:inherit}
 }
 </style>
 
+
+<style id="purchase-contact-final">
+.purchase-contact{
+  background:#000;
+  color:#fff;
+  padding-block:clamp(3rem,6vw,5rem);
+}
+
+.purchase-contact__panel{
+  border:1px solid rgba(228,199,120,.72);
+  padding:clamp(1.6rem,3vw,2.4rem);
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:clamp(1.5rem,4vw,4rem);
+}
+
+.purchase-contact__heading{
+  display:grid;
+  grid-template-columns:auto 1px auto;
+  align-items:center;
+  gap:clamp(1rem,2.2vw,2rem);
+  min-width:0;
+}
+
+.purchase-contact__heading h2{
+  font-family:var(--serif);
+  font-size:clamp(1.25rem,2.2vw,2rem);
+  font-weight:400;
+  letter-spacing:.04em;
+  white-space:nowrap;
+}
+
+.purchase-contact__divider{
+  width:1px;
+  height:100%;
+  min-height:4rem;
+  background:rgba(228,199,120,.62);
+}
+
+.purchase-contact__heading p{
+  font-family:var(--serif);
+  font-size:clamp(.8rem,1.2vw,1rem);
+  line-height:1.8;
+  color:rgba(255,255,255,.72);
+  white-space:nowrap;
+}
+
+.purchase-contact__buttons{
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:nowrap !important;
+  gap:clamp(.75rem,1.6vw,1.2rem) !important;
+  margin:0 !important;
+}
+
+.purchase-contact__buttons .cta{
+  min-width:0 !important;
+  width:auto !important;
+  min-height:52px !important;
+  padding:.8rem 1.35rem !important;
+  font-size:clamp(.75rem,1vw,.95rem) !important;
+  white-space:nowrap !important;
+}
+
+@media(max-width:760px){
+  .purchase-contact{
+    padding-block:8vw;
+  }
+
+  .purchase-contact .container{
+    width:92%;
+  }
+
+  .purchase-contact__panel{
+    padding:4vw;
+    grid-template-columns:1fr;
+    gap:4vw;
+  }
+
+  .purchase-contact__heading{
+    grid-template-columns:auto 1px 1fr;
+    gap:3vw;
+  }
+
+  .purchase-contact__heading h2{
+    font-size:4vw;
+  }
+
+  .purchase-contact__heading p{
+    font-size:2.4vw;
+  }
+
+  .purchase-contact__buttons{
+    width:100% !important;
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:2vw !important;
+  }
+
+  .purchase-contact__buttons .cta{
+    width:100% !important;
+    padding:2.3vw 1.4vw !important;
+    font-size:2.5vw !important;
+    min-height:0 !important;
+  }
+
+  .purchase-contact__buttons .cta svg{
+    width:4vw !important;
+    height:4vw !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <header class="header">
@@ -1226,9 +1340,33 @@ button{font:inherit}
   </div>
 </section>
 
-<section class="envelope fade-in">
-<div class="envelope__overlay"><div class="envelope__content"><h2>封筒の追加購入</h2><small>1枚につき</small><div class="envelope__price"><strong>380</strong><span>円</span></div><p>一度のご購入で、<br/>複数名へお渡しいただけるよう、<br/>必要枚数分の封筒をご購入いただけます。</p></div></div>
+
+
+<section class="purchase-contact section">
+  <div class="container">
+    <div class="purchase-contact__panel">
+      <div class="purchase-contact__heading">
+        <h2>ご購入のご相談はこちら</h2>
+        <span class="purchase-contact__divider" aria-hidden="true"></span>
+        <p>お気軽に<br>お問い合わせください。</p>
+      </div>
+
+      <div class="purchase-contact__buttons hero__buttons">
+        <a aria-label="電話で問い合わせる" class="cta cta--phone" href="tel:0487834122">
+          <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"></path>
+          </svg>
+          お電話でお問い合わせ
+        </a>
+
+        <a class="cta cta--line" href="https://lin.ee/WI1loJE" rel="noopener" target="_blank">
+          <span aria-hidden="true">LINE</span> 公式でお問い合わせ
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
+
 <section class="section coupon">
 <div class="container coupon-grid">
 <div class="fade-in"><div class="coupon-eyebrow">よくご利用いただくお客様へ</div><h2>お得な回数券も<br/>ご用意しております</h2><p>現在は予約サイトよりご購入いただけます</p><a class="coupon-btn" href="https://totonoiplus.stores.jp/reserve/omiya/products#pageContent" rel="noopener" target="_blank">回数券を詳しく見る ▶</a></div>
