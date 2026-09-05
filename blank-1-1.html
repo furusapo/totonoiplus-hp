@@ -1159,3 +1159,101 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+
+<style id="price-full-background-final">
+/* 料金について：画像をセクション全面に配置 */
+.price-layout-final{
+  position:relative !important;
+  overflow:hidden !important;
+  background:#000 !important;
+}
+
+.price-layout-final .container{
+  position:relative !important;
+  z-index:2 !important;
+}
+
+.price-layout-final__grid{
+  position:relative !important;
+  display:block !important;
+  min-height:clamp(42rem,68vw,58rem) !important;
+}
+
+.price-layout-final__copy{
+  position:relative !important;
+  z-index:3 !important;
+  width:46% !important;
+  padding-block:clamp(2rem,5vw,5rem) !important;
+}
+
+.price-layout-final__visual{
+  position:absolute !important;
+  inset:0 !important;
+  z-index:0 !important;
+  width:100% !important;
+  height:100% !important;
+}
+
+.price-layout-final__visual .price__visual-added{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  margin:0 !important;
+}
+
+.price-layout-final__visual img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+}
+
+/* 左の文字を読みやすくする黒グラデーション */
+.price-layout-final__visual::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.98) 0%,
+      rgba(0,0,0,.94) 28%,
+      rgba(0,0,0,.72) 48%,
+      rgba(0,0,0,.22) 72%,
+      rgba(0,0,0,.08) 100%
+    );
+}
+
+@media(max-width:760px){
+  .price-layout-final .container{
+    width:92% !important;
+  }
+
+  .price-layout-final__grid{
+    min-height:125vw !important;
+  }
+
+  .price-layout-final__copy{
+    width:53% !important;
+    padding-block:8vw !important;
+  }
+
+  .price-layout-final__visual img{
+    object-position:62% center !important;
+  }
+
+  .price-layout-final__visual::after{
+    background:
+      linear-gradient(
+        90deg,
+        rgba(0,0,0,.98) 0%,
+        rgba(0,0,0,.92) 38%,
+        rgba(0,0,0,.52) 62%,
+        rgba(0,0,0,.12) 100%
+      ) !important;
+  }
+}
+</style>
