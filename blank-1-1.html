@@ -880,3 +880,33 @@
     </script>
 </body>
 </html>
+
+<style>
+/* スマホ：こんなシーンで選ばれています → 2列×2段を維持 */
+@media (max-width: 760px) {
+  .scene-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 28px 14px !important;
+  }
+
+  .scene-item {
+    min-width: 0 !important;
+  }
+
+  .scene-item img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .scene-item h3 {
+    font-size: clamp(15px, 4vw, 19px) !important;
+    line-height: 1.55 !important;
+  }
+
+  .scene-item p {
+    font-size: 12px !important;
+    line-height: 1.8 !important;
+  }
+}
+</style>
