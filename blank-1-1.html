@@ -1574,6 +1574,17 @@ button{font:inherit}
 </style>
 
 
+<style id="coupon-typography-adjustment">
+.coupon-light__headline{
+  font-size:40px !important;
+}
+@media(max-width:760px){
+  .coupon-light__headline{
+    font-size:clamp(16px,4.5vw,24px) !important;
+  }
+}
+</style>
+
 <style id="coupon-text-color-fix">
 .coupon-light__headline{
   color:#222 !important;
