@@ -775,11 +775,18 @@ button{font:inherit}
   color:#fff;
 }
 .price-layout-final__amount{
-  margin:1.2rem 0;
+  margin:1.6rem 0 1.7rem !important;
   font-family:var(--en);
-  font-size:clamp(4.4rem,8vw,7.5rem);
+  font-size:clamp(3.8rem,6.6vw,6.3rem) !important;
   line-height:.95;
-  color:var(--gold-light);
+  letter-spacing:.01em !important;
+  color:#ffe3a0;
+
+  /* シャンパンゴールドの発光 */
+  text-shadow:
+    0 0 8px rgba(255,235,170,.85),
+    0 0 20px rgba(255,205,100,.60),
+    0 0 42px rgba(220,160,60,.35);
 }
 .price-layout-final__amount span{
   margin-left:.18em;
@@ -869,8 +876,8 @@ button{font:inherit}
     margin-bottom:3vw;
   }
   .price-layout-final__amount{
-    font-size:10vw;
-    margin:3vw 0;
+    font-size:9vw !important;
+    margin:3.2vw 0 3.6vw !important;
   }
   .price-layout-final__lead{
     font-size:2.5vw;
@@ -985,11 +992,7 @@ button{font:inherit}
   width:41% !important;
 }
 
-.price-layout-final__amount{
-  font-size:clamp(3.8rem,6.6vw,6.3rem) !important;
-  margin:1.6rem 0 1.7rem !important;
-  letter-spacing:.01em !important;
-}
+
 
 .price-layout-final h2{
   margin-bottom:2rem !important;
@@ -1033,10 +1036,7 @@ button{font:inherit}
     padding-top:9vw !important;
   }
 
-  .price-layout-final__amount{
-    font-size:9vw !important;
-    margin:3.2vw 0 3.6vw !important;
-  }
+  
 
   .price-layout-final h2{
     margin-bottom:3.8vw !important;
@@ -1594,6 +1594,45 @@ button{font:inherit}
 }
 </style>
 
+
+
+
+
+
+
+
+
+
+
+<style>
+/* mobile price whitespace fix 20261119 */
+
+@media(max-width:760px){
+
+  .price-layout-final{
+    min-height:0 !important;
+    height:auto !important;
+    aspect-ratio:auto !important;
+    padding:0 !important;
+  }
+
+  .price-layout-final .container{
+    min-height:0 !important;
+    height:auto !important;
+    padding-bottom:35px !important;
+  }
+
+  .price-layout-final__grid{
+    height:auto !important;
+  }
+
+  .price-layout-final__copy{
+    padding-bottom:0 !important;
+  }
+
+}
+</style>
+
 </head>
 <body>
 <header class="header">
@@ -1729,20 +1768,11 @@ button{font:inherit}
           自由にお選びいただけます。
         </p>
 
-        <p class="price-layout-final__note">お好きな枚数をご購入いただけます</p>
+        
 
         <div class="price-layout-final__rule"></div>
 
-        <dl class="price-layout-final__fees">
-          <div>
-            <dt>ギフト封筒・発行手数料</dt>
-            <dd>550円（税込）</dd>
-          </div>
-          <div>
-            <dt>追加封筒</dt>
-            <dd>1枚 380円（税込）</dd>
-          </div>
-        </dl>
+        
 
         
       </div>
@@ -1758,6 +1788,237 @@ button{font:inherit}
 
 
 
+
+
+<style id="gift-details-v2-style">
+/* ===== GIFT BENEFITS : SINGLE LAYOUT ===== */
+
+.gift-benefits-v2 {
+  width:100%;
+  max-width:1100px;
+  margin:0 auto 55px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  align-items:stretch;
+}
+
+.gift-benefit-v2 {
+  min-width:0;
+  width:100%;
+  box-sizing:border-box;
+  padding:10px 12px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+}
+
+.gift-benefit-v2 + .gift-benefit-v2 {
+  border-left:1px solid rgba(255,255,255,.45);
+}
+
+.gift-benefit-v2 > img {
+  display:block;
+  width:76px;
+  height:100px;
+  max-width:none;
+  object-fit:contain;
+  margin:0 auto 12px;
+  flex-shrink:0;
+}
+
+.gift-benefit-v2:nth-child(2) > img {
+  width:88px;
+}
+
+.gift-benefit-v2 > p {
+  display:block;
+  width:100%;
+  margin:0;
+  padding:0;
+  text-align:center;
+  font-size:clamp(14px,1.7vw,21px);
+  line-height:1.9;
+}
+
+@media(max-width:767px) {
+  .gift-benefits-v2 {
+    margin-bottom:30px;
+  }
+
+  .gift-benefit-v2 {
+    padding:5px;
+  }
+
+  .gift-benefit-v2 > img {
+    width:48px;
+    height:70px;
+    margin-bottom:10px;
+  }
+
+  .gift-benefit-v2:nth-child(2) > img {
+    width:60px;
+  }
+
+  .gift-benefit-v2 > p {
+    font-size:clamp(10px,2.7vw,13px);
+    line-height:1.7;
+  }
+}
+
+
+.gift-details-v2 {
+  background:#0b0806;
+  color:#fff;
+  padding:30px 5% 65px;
+  font-family:'Noto Serif JP',serif;
+}
+
+
+.gift-benefit-v2 + 
+
+
+.gift-fees-v2 {
+  max-width:1100px;
+  margin:auto;
+  border:1px solid #c9a05a;
+  border-radius:12px;
+  padding:18px 35px;
+}
+.gift-fee-v2 {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  padding:22px 0;
+}
+.gift-fee-v2 + .gift-fee-v2 {
+  border-top:1px solid rgba(255,255,255,.35);
+}
+.gift-fee-label-v2 {
+  display:flex;
+  align-items:center;
+  gap:22px;
+  font-size:clamp(15px,2vw,23px);
+}
+.gift-fee-label-v2 svg {
+  width:35px;
+  height:35px;
+  flex-shrink:0;
+  stroke:#d5b477;
+  fill:none;
+  stroke-width:1.5;
+}
+.gift-fee-price-v2 {
+  color:#e4c778;
+  font-size:clamp(18px,2.6vw,30px);
+  white-space:nowrap;
+}
+.gift-fee-price-v2 small {
+  font-size:.55em;
+}
+@media(max-width:640px) {
+  .gift-details-v2 {
+    padding:16px 4% 38px;
+  }
+  
+  
+  
+  
+  .gift-fees-v2 {
+    padding:8px 15px;
+    border-radius:8px;
+  }
+  .gift-fee-v2 {
+    gap:8px;
+    padding:15px 0;
+  }
+  .gift-fee-label-v2 {
+    gap:9px;
+    font-size:clamp(11px,3vw,15px);
+  }
+  .gift-fee-label-v2 svg {
+    width:23px;
+    height:23px;
+  }
+  .gift-fee-price-v2 {
+    font-size:clamp(13px,3.5vw,19px);
+  }
+}
+</style>
+
+
+
+
+
+
+
+<section id="gift-details-v2" class="gift-details-v2">
+  <div class="gift-benefits-v2">
+
+    <div class="gift-benefit-v2">
+      <img src="images/gift/gift-icon.png" alt="" width="64" height="64">
+      <p>お好きな枚数で<br>ご購入いただけます</p>
+    </div>
+
+    <div class="gift-benefit-v2">
+      <img src="images/gift/people-icon.png" alt="" width="64" height="64">
+      <p>贈る相手や<br>人数に合わせて<br>選べます</p>
+    </div>
+
+    <div class="gift-benefit-v2">
+      <img src="images/gift/heart-icon.png" alt="" width="64" height="64">
+      <p>特別なギフトとして<br>ご利用いただけます</p>
+    </div>
+
+  </div>
+
+  <div class="gift-fees-v2">
+
+    <div class="gift-fee-v2">
+      <div class="gift-fee-label-v2">
+        <svg viewBox="0 0 40 40">
+          <rect x="3" y="8" width="34" height="24"/>
+          <path d="M3 9l17 14L37 9"/>
+        </svg>
+        <span>ギフト封筒・発行手数料</span>
+      </div>
+      <div class="gift-fee-price-v2">
+        550円 <small>（税込）</small>
+      </div>
+    </div>
+
+    <div class="gift-fee-v2">
+      <div class="gift-fee-label-v2">
+        <svg viewBox="0 0 40 40">
+          <path d="M4 8h32v8a4 4 0 0 0 0 8v8H4v-8a4 4 0 0 0 0-8z"/>
+        </svg>
+        <span>追加封筒セット（封筒＋台紙）</span>
+      </div>
+      <div class="gift-fee-price-v2">
+        1セット 400円 <small>（税込）</small>
+      </div>
+    </div>
+
+    <div class="gift-fee-v2">
+      <div class="gift-fee-label-v2">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <rect x="3" y="8" width="34" height="24"/>
+          <path d="M3 9l17 14L37 9"/>
+        </svg>
+        <span>封筒のみ追加</span>
+      </div>
+      <div class="gift-fee-price-v2">
+        1枚 300円 <small>（税込）</small>
+      </div>
+    </div>
+
+
+  </div>
+</section>
 
 <div class="price-message-outside-contact">
 <p class="price-layout-final__message">
