@@ -1721,6 +1721,106 @@ button{font:inherit}
 }
 </style>
 
+
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+
+<style id="price-bodoni-italic-final">
+.price-layout-final__amount .price-bodoni-number {
+  font-family:'Bodoni Moda',serif !important;
+  font-style:italic !important;
+  font-weight:600 !important;
+}
+</style>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
+
+<style id="price-reference-design-20261119">
+
+.price-layout-final__amount .price-bodoni-number {
+    font-family:'Cormorant Garamond',serif !important;
+    font-style:italic !important;
+    font-weight:600 !important;
+    font-synthesis:none !important;
+    letter-spacing:-0.025em !important;
+}
+
+.price-message-outside-contact .price-layout-final__message {
+    font-family:'Noto Serif JP',serif !important;
+    font-size:clamp(22px,2.5vw,32px) !important;
+    font-weight:400 !important;
+    line-height:1.85 !important;
+    letter-spacing:.06em !important;
+    color:#e4c778 !important;
+    text-align:center !important;
+}
+
+@media(max-width:760px) {
+
+    .price-layout-final__amount .price-bodoni-number {
+        font-style:italic !important;
+        font-weight:600 !important;
+    }
+
+    .price-message-outside-contact .price-layout-final__message {
+        font-size:clamp(16px,4vw,23px) !important;
+        line-height:1.9 !important;
+        letter-spacing:.025em !important;
+    }
+
+}
+
+</style>
+
+
+<style id="price-mobile-spacing-20261119">
+@media (max-width:760px) {
+
+  /* 料金表セクション下の余白 */
+  .price-layout-final {
+    padding-bottom:0 !important;
+    margin-bottom:0 !important;
+    min-height:0 !important;
+  }
+
+  /* メッセージ上下の余白 */
+  .price-message-outside-contact {
+    padding:20px 16px 24px !important;
+    margin:0 !important;
+    min-height:0 !important;
+  }
+
+  /* メッセージ本文の余白 */
+  .price-message-outside-contact .price-layout-final__message {
+    margin:0 !important;
+  }
+
+  /* お問い合わせセクションとの間隔 */
+  .price-message-outside-contact + .purchase-contact {
+    margin-top:0 !important;
+    padding-top:0 !important;
+  }
+
+}
+</style>
+
+
+<style id="price-mobile-upper-gap-final">
+@media (max-width:760px) {
+
+  /* メッセージ上の余白だけ35px縮小 */
+  .price-message-outside-contact {
+    padding-top:0 !important;
+    padding-bottom:24px !important;
+  }
+
+  .price-layout-final {
+    margin-bottom:-15px !important;
+  }
+
+}
+</style>
+
 </head>
 <body>
 <header class="header">
@@ -2010,7 +2110,7 @@ button{font:inherit}
 }
 @media(max-width:640px) {
   .gift-details-v2 {
-    padding:16px 4% 38px;
+    padding:16px 4% 12px;
   }
   
   
@@ -2109,9 +2209,7 @@ button{font:inherit}
 </section>
 
 <div class="price-message-outside-contact">
-<p class="price-layout-final__message">
-          大切な思いが、特別な時間につながりますように。
-        </p>
+<p class="price-layout-final__message">大切な思いが、<br>特別な時間につながりますように</p>
 </div>
 <section class="purchase-contact section">
   <div class="container">
