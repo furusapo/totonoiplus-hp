@@ -1633,6 +1633,19 @@ button{font:inherit}
 }
 </style>
 
+
+<style id="price-bodoni-font">
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&display=swap');
+
+.price-layout-final__amount .price-bodoni-number {
+  font-family: 'Bodoni Moda', serif !important;
+  font-weight: 700 !important;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+</style>
+
 </head>
 <body>
 <header class="header">
@@ -1761,7 +1774,7 @@ button{font:inherit}
         <p class="price-layout-final__en">PRICE</p>
         <h2>料金について</h2>
 
-        <div class="price-layout-final__amount">5,000<span>円〜</span></div>
+        <div class="price-layout-final__amount"><strong class="price-bodoni-number">5,000</strong><span>円〜</span></div>
 
         <p class="price-layout-final__lead">
           贈る気持ちや人数に合わせて、<br>
