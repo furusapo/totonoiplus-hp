@@ -1629,18 +1629,18 @@ button{font:inherit}
   }
 
   .gift-expiry__link {
-    --ring-size: 36px;
+    --ring-size: 50px;
     position: relative;
     min-height: 70px;
     padding: 0 26px 8px 12px;
-    gap: 22px;
+    gap: 48px;
   }
 
   .gift-expiry__link::after {
     content: "";
     position: absolute;
     inset: auto 12px 0;
-    height: 1px;
+    height: 2px;
     background: linear-gradient(90deg, #ab8650, #f3ddb0 54%, #ab8650);
   }
 
@@ -1661,10 +1661,10 @@ button{font:inherit}
   .gift-expiry__calendar::before,
   .gift-expiry__calendar::after { background: currentColor; }
   .gift-expiry__check { border-color: currentColor; }
-  .gift-expiry__content { gap: 20px; }
-  .gift-expiry__eyebrow { font-size: 13px; }
-  .gift-expiry__title { font-size: 19px; }
-  .gift-expiry__arrow { width: 17px; height: 17px; }
+  .gift-expiry__content { gap: 20px; line-height: 1.3; letter-spacing: .05em; }
+  .gift-expiry__eyebrow { font-size: 17px; margin-bottom: 3px; }
+  .gift-expiry__title { font-size: 28px; font-weight: 600; }
+  .gift-expiry__arrow { width: 15px; height: 15px; }
 }
 
 @media (width > 640px) and (prefers-reduced-motion: no-preference) {
