@@ -1512,9 +1512,15 @@ button{font:inherit}
   .gift-price__fees { border-color: CanvasText; }
 }
 
-@media (max-width: 760px) {
-  #price + .purchase-contact {
-    padding-top: 0;
+#price + .purchase-contact {
+  padding-top: 0;
+}
+
+@media (width > 760px) {
+  .gift-price__message {
+    --message-space: 4.55cqw;
+    margin-top: var(--message-space);
+    padding-bottom: var(--message-space);
   }
 }
 </style>
@@ -1648,9 +1654,8 @@ button{font:inherit}
 
 @keyframes gift-expiry-border-shimmer {
   0% { background-position: left center; opacity: 0; }
-  6% { opacity: .8; }
-  17% { opacity: .8; }
-  23%, 100% { background-position: right center; opacity: 0; }
+  9%, 33% { opacity: 1; }
+  44%, 100% { background-position: right center; opacity: 0; }
 }
 
 @media (max-width: 640px) {
@@ -1768,10 +1773,10 @@ button{font:inherit}
     position: absolute;
     top: -1px;
     inset-inline: 28px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #ffe2aa 34%, #fff6df 55%, transparent)
-      left center / 44% 100% no-repeat;
-    animation: gift-expiry-border-shimmer 6.5s ease-in-out infinite;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #b3813d 26%, #e1b267 43%,
+      #fff1c9 52%, #c4944f 68%, transparent) left center / 36% 100% no-repeat;
+    animation: gift-expiry-border-shimmer 4.5s ease-in-out infinite;
     pointer-events: none;
   }
 }
