@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="TOTONOI+ GIFT CARD。サウナ・コワーキング・会議室・ドリンクなど、館内サービス全般にご利用いただけるギフトカードです。">
   <title>ギフトカード | ととのい＋</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1518,6 +1518,175 @@ button{font:inherit}
   }
 }
 </style>
+<style id="gift-expiry-cta">
+.gift-expiry {
+  width: min(480px, 100%);
+  margin-top: 24px;
+}
+
+.gift-expiry__link {
+  --ring-size: 106px;
+  --ring-width: 3px;
+  display: grid;
+  grid-template-columns: var(--ring-size) minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  color: #fffaf4;
+  font-family: 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', 'Noto Serif CJK JP', serif;
+}
+
+.gift-expiry__link:focus-visible {
+  outline: 2px solid #ffe6b6;
+  outline-offset: 5px;
+  border-radius: 4px;
+}
+
+.gift-expiry__ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--ring-size);
+  aspect-ratio: 1;
+  border: var(--ring-width) solid transparent;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 55% 40%, #1b1715, #0d0b0a 72%) padding-box,
+    linear-gradient(145deg, #fffaf2 24%, #f5e4cc 53%, #d6ae7b 73%, #fff3db 91%) border-box;
+  box-shadow: 0 0 13px rgba(237, 185, 114, .27), inset 0 0 10px rgba(255, 224, 180, .12);
+}
+
+.gift-expiry__ring::after {
+  content: "";
+  position: absolute;
+  inset: calc(var(--ring-width) / 2 - 4.5px);
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle, #fff9e8 0 15%, #ffddaa 28%, transparent 70%) center top / 9px 9px no-repeat;
+  filter: drop-shadow(0 0 4px #ffd59c);
+  transform: rotate(224deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .gift-expiry__ring::after {
+    animation: gift-expiry-orbit 13s linear infinite;
+  }
+}
+
+@keyframes gift-expiry-orbit {
+  to { transform: rotate(584deg); }
+}
+
+.gift-expiry__calendar {
+  position: relative;
+  width: 46%;
+  height: 40%;
+  border: 2px solid #f8e8d4;
+  border-radius: 13%;
+  background: linear-gradient(#fff7eb, #fff7eb) 0 27% / 100% 2px no-repeat;
+}
+
+.gift-expiry__calendar::before,
+.gift-expiry__calendar::after {
+  content: "";
+  position: absolute;
+  top: -19%;
+  width: 2px;
+  height: 32%;
+  border-radius: 2px;
+  background: #fffaf2;
+}
+
+.gift-expiry__calendar::before { left: 21%; }
+.gift-expiry__calendar::after { right: 21%; }
+
+.gift-expiry__check {
+  position: absolute;
+  top: 49%;
+  left: 34%;
+  width: 37%;
+  height: 24%;
+  border: solid #f8e8d4;
+  border-width: 0 0 2px 2px;
+  transform: rotate(-45deg);
+}
+
+.gift-expiry__content {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 0 6px 19px 10px;
+  line-height: 1.4;
+}
+
+.gift-expiry__content::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #d5ae79, #f7e6cd 27%, #fff6e8 69%, #debb8c);
+  box-shadow: 0 0 6px rgba(255, 211, 153, .34);
+}
+
+.gift-expiry__eyebrow { display: block; margin-bottom: 3px; font-size: 20px; }
+.gift-expiry__title { display: block; font-size: 31px; font-weight: 400; white-space: nowrap; }
+
+.gift-expiry__arrow {
+  width: 17px;
+  height: 17px;
+  border: solid #fffaf4;
+  border-width: 2px 2px 0 0;
+  transform: rotate(45deg);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --header-h: calc(58px + env(safe-area-inset-top, 0px));
+    --gift-expiry-dock-height: calc(76px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .header__inner { padding-top: env(safe-area-inset-top, 0px); }
+  .hero__content {
+    z-index: auto;
+    padding-bottom: max(42px, calc(662px - 100svh + var(--gift-expiry-dock-height))) !important;
+  }
+
+  html { scroll-padding-bottom: var(--gift-expiry-dock-height); }
+  .footer { padding-bottom: calc(30px + var(--gift-expiry-dock-height)); }
+
+  .gift-expiry {
+    position: fixed;
+    z-index: 10;
+    inset: auto 0 0;
+    width: 100%;
+    max-width: none;
+    height: var(--gift-expiry-dock-height);
+    margin: 0;
+    padding: 10px max(16px, env(safe-area-inset-right, 0px))
+      calc(10px + env(safe-area-inset-bottom, 0px))
+      max(16px, env(safe-area-inset-left, 0px));
+    background: #100e0d;
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, .24);
+  }
+
+  .gift-expiry__link {
+    --ring-size: 52px;
+    --ring-width: 2px;
+    width: min(100%, 360px);
+    height: 100%;
+    margin-inline: auto;
+    gap: 13px;
+  }
+
+  .gift-expiry__content { padding: 0 6px 8px 5px; gap: 10px; }
+  .gift-expiry__content::after { height: 1px; }
+  .gift-expiry__eyebrow, .gift-expiry__desktop-ending { display: none; }
+  .gift-expiry__title { font-size: clamp(19px, 5.6vw, 24px); }
+  .gift-expiry__arrow { width: 12px; height: 12px; }
+}
+</style>
 </head>
 <body>
 <header class="header">
@@ -1545,6 +1714,20 @@ button{font:inherit}
 <a class="cta cta--line" href="https://lin.ee/WI1loJE" rel="noopener" target="_blank">
 <span aria-hidden="true">LINE</span> 公式でお問い合わせ
           </a>
+</div>
+<div class="gift-expiry">
+  <a class="gift-expiry__link" href="https://furusapo.github.io/totonoiplus-giftcard/giftcard-check.html">
+    <span class="gift-expiry__ring" aria-hidden="true">
+      <span class="gift-expiry__calendar"><span class="gift-expiry__check"></span></span>
+    </span>
+    <span class="gift-expiry__content">
+      <span>
+        <span class="gift-expiry__eyebrow">ギフトカードをお持ちの方へ</span>
+        <span class="gift-expiry__title">有効期限を確認<span class="gift-expiry__desktop-ending">する</span></span>
+      </span>
+      <span class="gift-expiry__arrow" aria-hidden="true"></span>
+    </span>
+  </a>
 </div>
 </div>
 </section>
