@@ -1657,15 +1657,29 @@ button{font:inherit}
   .gift-expiry { margin: var(--expiry-clearance) 0 0; }
 }
 
+@media (width > 640px) {
+  .gift-expiry__arrow {
+    width: 17px;
+    color: #695340;
+    background: currentColor;
+  }
+
+  .gift-expiry__arrow::after {
+    width: 9px;
+    height: 9px;
+    border-color: currentColor;
+  }
+}
+
 @media (width > 640px) and (prefers-reduced-motion: no-preference) {
-  .gift-expiry__arrow { animation: gift-expiry-arrow-sparkle 5.5s ease-in-out infinite; }
+  .gift-expiry__arrow { animation: gift-expiry-arrow-sparkle 4s ease-in-out infinite; }
 }
 
 @keyframes gift-expiry-arrow-sparkle {
   0%, 34%, 100% { filter: none; }
   12% {
-    border-color: #ffe1a4;
-    filter: drop-shadow(0 0 3px #ffd390) drop-shadow(0 0 7px #d8a454);
+    color: #765e4c;
+    filter: drop-shadow(0 0 3px #f2e5d7) drop-shadow(0 0 6px #b9a089);
   }
 }
 
