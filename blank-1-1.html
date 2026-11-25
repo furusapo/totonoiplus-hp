@@ -306,9 +306,12 @@ button{font:inherit}
   .scene-card__body{min-width:0}
   .scene-card h3{font-size:clamp(14px,4vw,18px);line-height:1.5;margin-bottom:8px}
   .scene-rule{max-width:none;margin-bottom:10px}
-  .scene-card p{font-size:10px;line-height:1.7;overflow-wrap:anywhere}
+  .scene-card p{font-size:10px;line-height:1.7;line-break:strict}
   .scene-card p br{display:none}
   .scene-closing{font-size:15px;line-height:1.8;margin-top:30px}
+  .mobile-phrase{display:inline-block;max-width:100%}
+  :is(.scenes .section-title,.scene-closing,.purchase-card h3,.coupon-light__title){text-wrap:balance}
+  .purchase-card p{line-break:strict}
 
   .design{padding:62px 0 70px}
   .design-slider{margin-top:38px}
@@ -664,6 +667,13 @@ button{font:inherit}
   line-height:1;
   transform:translateY(-2px);
   opacity:.9;
+}
+
+@media (max-width:480px){
+  .purchase-card h3{
+    min-height:3em;
+    align-content:center;
+  }
 }
 
 /* スマホでも3枚を横並びのまま維持 */
@@ -1775,9 +1785,9 @@ button{font:inherit}
 </section>
 <section class="section scenes">
 <div class="container">
-<h2 class="section-title fade-in">こんなシーンで選ばれています</h2>
-<div class="scene-grid"><article class="scene-card fade-in"><div class="scene-card__media"><img alt="誕生日の贈り物" src="images/gift/scene-birthday.png"/></div><div class="scene-card__body"><h3>誕生日に</h3><div class="scene-rule"></div><p>大切な人の特別な日を、<br/>心に残るひとときでお祝いします。</p></div></article><article class="scene-card fade-in"><div class="scene-card__media"><img alt="お祝い・お返しの贈り物" src="images/gift/scene-reward.png"/></div><div class="scene-card__body"><h3>お祝い・お返しに</h3><div class="scene-rule"></div><p>お祝いや内祝い、<br/>お礼の気持ちを上質なギフトに込めて。</p></div></article><article class="scene-card fade-in"><div class="scene-card__media"><img alt="接待・ゴルフコンペ" src="images/gift/scene-event.png"/></div><div class="scene-card__body"><h3>接待・ゴルフコンペに</h3><div class="scene-rule"></div><p>大切なお取引先や、<br/>コンペの景品としても喜ばれる贈り物です。</p></div></article><article class="scene-card fade-in"><div class="scene-card__media"><img alt="表彰・福利厚生" src="images/gift/scene-labor.png"/></div><div class="scene-card__body"><h3>表彰・福利厚生に</h3><div class="scene-rule"></div><p>従業員の表彰や福利厚生など、<br/>感謝や労いの気持ちを伝える贈り物として。</p></div></article></div>
-<p class="scene-closing fade-in">大切な方への贈り物に、特別な「ととのい」を。</p>
+<h2 class="section-title fade-in"><span class="mobile-phrase">こんなシーンで</span><wbr><span class="mobile-phrase">選ばれています</span></h2>
+<div class="scene-grid"><article class="scene-card fade-in"><div class="scene-card__media"><img alt="誕生日の贈り物" src="images/gift/scene-birthday.png"/></div><div class="scene-card__body"><h3>誕生日に</h3><div class="scene-rule"></div><p><span class="mobile-phrase">大切な人の特別な日を、</span><br/><wbr><span class="mobile-phrase">心に残るひとときで</span><wbr><span class="mobile-phrase">お祝いします。</span></p></div></article><article class="scene-card fade-in"><div class="scene-card__media"><img alt="お祝い・お返しの贈り物" src="images/gift/scene-reward.png"/></div><div class="scene-card__body"><h3>お祝い・お返しに</h3><div class="scene-rule"></div><p><span class="mobile-phrase">お祝いや内祝い、</span><br/><wbr><span class="mobile-phrase">お礼の気持ちを</span><wbr><span class="mobile-phrase">上質なギフトに込めて。</span></p></div></article><article class="scene-card fade-in"><div class="scene-card__media"><img alt="接待・ゴルフコンペ" src="images/gift/scene-event.png"/></div><div class="scene-card__body"><h3>接待・ゴルフコンペに</h3><div class="scene-rule"></div><p><span class="mobile-phrase">大切なお取引先や、</span><br/><wbr><span class="mobile-phrase">コンペの景品としても</span><wbr><span class="mobile-phrase">喜ばれる贈り物です。</span></p></div></article><article class="scene-card fade-in"><div class="scene-card__media"><img alt="表彰・福利厚生" src="images/gift/scene-labor.png"/></div><div class="scene-card__body"><h3>表彰・福利厚生に</h3><div class="scene-rule"></div><p><span class="mobile-phrase">従業員の表彰や</span><wbr><span class="mobile-phrase">福利厚生など、</span><br/><wbr><span class="mobile-phrase">感謝や労いの気持ちを</span><wbr><span class="mobile-phrase">伝える贈り物として。</span></p></div></article></div>
+<p class="scene-closing fade-in"><span class="mobile-phrase">大切な方への贈り物に、</span><wbr><span class="mobile-phrase">特別な「ととのい」を。</span></p>
 </div>
 </section>
 <section aria-labelledby="design-title" class="design">
@@ -1811,7 +1821,7 @@ button{font:inherit}
           </svg>
         </div>
         <h3>お問い合わせ</h3>
-        <p>お電話または公式LINEより、ギフトカードご購入の旨をご連絡ください。</p>
+        <p><span class="mobile-phrase">お電話または</span><wbr><span class="mobile-phrase">公式LINEより、</span><wbr><span class="mobile-phrase">ギフトカード</span><wbr><span class="mobile-phrase">ご購入の旨を</span><wbr><span class="mobile-phrase">ご連絡ください。</span></p>
       </article>
 
       <div class="purchase-flow__arrow" aria-hidden="true">→</div>
@@ -1826,7 +1836,7 @@ button{font:inherit}
           </svg>
         </div>
         <h3>内容を確認</h3>
-        <p>デザイン・金額・枚数など、ご希望の内容を確認させていただきます。</p>
+        <p><span class="mobile-phrase">デザイン・</span><wbr><span class="mobile-phrase">金額・枚数など、</span><wbr><span class="mobile-phrase">ご希望の内容を</span><wbr><span class="mobile-phrase">確認させて</span><wbr><span class="mobile-phrase">いただきます。</span></p>
       </article>
 
       <div class="purchase-flow__arrow" aria-hidden="true">→</div>
@@ -1841,8 +1851,8 @@ button{font:inherit}
             <path d="M24 12c-4-7-11-7-11-2 0 3 4 4 11 2Zm0 0c4-7 11-7 11-2 0 3-4 4-11 2Z"/>
           </svg>
         </div>
-        <h3>お支払い・お渡し</h3>
-        <p>基本は店頭でお支払いいただき、その場で商品をお渡しします。ご希望があれば発送も承ります。</p>
+        <h3><span class="mobile-phrase">お支払い・</span><wbr><span class="mobile-phrase">お渡し</span></h3>
+        <p><span class="mobile-phrase">基本は店頭で</span><wbr><span class="mobile-phrase">お支払いいただき、</span><wbr><span class="mobile-phrase">その場で商品を</span><wbr><span class="mobile-phrase">お渡しします。</span></p>
       </article>
     </div>
   </div>
@@ -1938,7 +1948,7 @@ button{font:inherit}
 <section class="section coupon coupon-light">
   <div class="container">
     <div class="coupon-light__eyebrow">FOR REGULAR GUESTS</div>
-    <h2 class="coupon-light__title">よくご利用いただくお客様へ</h2>
+    <h2 class="coupon-light__title"><span class="mobile-phrase">よくご利用いただく</span><wbr><span class="mobile-phrase">お客様へ</span></h2>
     <p class="coupon-light__headline">お得な<span>回数券</span>もご用意しております。</p>
 
     <div class="coupon-light__images fade-in">
