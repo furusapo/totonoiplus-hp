@@ -1667,24 +1667,88 @@ button{font:inherit}
     padding: 10px max(16px, env(safe-area-inset-right, 0px))
       calc(10px + env(safe-area-inset-bottom, 0px))
       max(16px, env(safe-area-inset-left, 0px));
-    background: #100e0d;
-    box-shadow: 0 -4px 18px rgba(0, 0, 0, .24);
+    background: #f6f5f0;
+    box-shadow: 0 -4px 18px rgba(37, 28, 14, .14);
   }
 
   .gift-expiry__link {
-    --ring-size: 52px;
-    --ring-width: 2px;
-    width: min(100%, 360px);
+    --ring-size: 36px;
+    --ring-width: 1px;
+    position: relative;
+    width: min(100%, 380px);
     height: 100%;
     margin-inline: auto;
-    gap: 13px;
+    padding: 0 14px 0 10px;
+    gap: 0;
+    border: 1px solid #b99b65;
+    border-radius: 999px;
+    background: #faf9f5;
+    color: #24211d;
+    font-family: var(--sans);
   }
 
-  .gift-expiry__content { padding: 0 6px 8px 5px; gap: 10px; }
-  .gift-expiry__content::after { height: 1px; }
-  .gift-expiry__eyebrow, .gift-expiry__desktop-ending { display: none; }
-  .gift-expiry__title { font-size: clamp(19px, 5.6vw, 24px); }
-  .gift-expiry__arrow { width: 12px; height: 12px; }
+  .gift-expiry__link:focus-visible {
+    outline-color: #775324;
+    border-radius: 999px;
+  }
+
+  .gift-expiry__ring {
+    background: #efe6d7;
+    box-shadow: none;
+  }
+
+  .gift-expiry__ring::after {
+    background-image: radial-gradient(circle, #fff 0 12%, #e4c18a 24%, transparent 67%);
+    filter: drop-shadow(0 0 2px #b88a47);
+  }
+
+  .gift-expiry__calendar {
+    width: 54%;
+    height: 50%;
+    border-color: #906832;
+    background-image: linear-gradient(#906832, #906832);
+  }
+
+  .gift-expiry__calendar::before,
+  .gift-expiry__calendar::after { background: #906832; }
+  .gift-expiry__check { border-color: #906832; }
+
+  .gift-expiry__content {
+    position: static;
+    display: block;
+    padding: 0 36px 0 0;
+    text-align: center;
+  }
+
+  .gift-expiry__content::after,
+  .gift-expiry__eyebrow,
+  .gift-expiry__desktop-ending { display: none; }
+
+  .gift-expiry__title { font-size: clamp(16px, 4.6vw, 19px); font-weight: 600; }
+
+  .gift-expiry__arrow {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    width: 13px;
+    height: 2px;
+    border: 0;
+    border-radius: 2px;
+    transform: translateY(-50%);
+    background: #906832;
+  }
+
+  .gift-expiry__arrow::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 7px;
+    height: 7px;
+    border: solid #906832;
+    border-width: 2px 2px 0 0;
+    transform: translateY(-50%) rotate(45deg);
+  }
 }
 </style>
 </head>
