@@ -1668,9 +1668,30 @@ button{font:inherit}
 }
 
 @media (max-width: 640px) {
-  :root { --header-h: calc(58px + env(safe-area-inset-top, 0px)); }
+  :root {
+    --header-h: calc(58px + env(safe-area-inset-top, 0px));
+    --gift-expiry-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    --gift-expiry-clearance: calc(66px + var(--gift-expiry-bottom));
+  }
+
   .header__inner { padding-top: env(safe-area-inset-top, 0px); }
-  .footer { padding-bottom: calc(30px + env(safe-area-inset-bottom, 0px)); }
+  .hero__content {
+    z-index: auto;
+    padding-bottom: max(42px, calc(662px - 100svh + var(--gift-expiry-clearance))) !important;
+  }
+
+  html { scroll-padding-bottom: var(--gift-expiry-clearance); }
+  .footer { padding-bottom: calc(30px + var(--gift-expiry-clearance)); }
+
+  .gift-expiry {
+    position: fixed;
+    z-index: 10;
+    inset-inline: max(16px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+    bottom: var(--gift-expiry-bottom);
+    width: auto;
+    max-width: 320px;
+    margin: 0 auto;
+  }
 
   :is(.hero, .purchase-contact) .hero__buttons .cta {
     min-height: 48px !important;
