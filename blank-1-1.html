@@ -1617,31 +1617,17 @@ button{font:inherit}
 }
 
 .gift-expiry__content {
-  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 16px;
   align-items: center;
-  padding: 12px 6px 12px 10px;
-  line-height: 1.4;
+  line-height: 1.45;
+  letter-spacing: .08em;
 }
 
-.gift-expiry__content::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0;
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, #d5ae79, #f7e6cd 27%, #fff6e8 69%, #debb8c);
-  box-shadow: 0 0 6px rgba(255, 211, 153, .34);
-}
-
-.gift-expiry__eyebrow { display: block; margin-bottom: 3px; font-size: 17px; }
-.gift-expiry__title { display: block; font-size: 27px; font-weight: 600; white-space: nowrap; }
+.gift-expiry__eyebrow { display: block; margin-bottom: 5px; font-weight: 400; }
+.gift-expiry__title { display: block; font-weight: 500; white-space: nowrap; }
 
 .gift-expiry__arrow {
-  width: 17px;
-  height: 17px;
   border: solid #fffaf4;
   border-width: 2px 2px 0 0;
   transform: rotate(45deg);
@@ -1649,8 +1635,8 @@ button{font:inherit}
 
 @media (width > 640px) {
   .hero {
-    --expiry-clearance: 64px;
-    min-height: 720px;
+    --expiry-clearance: 36px;
+    min-height: 680px;
     align-items: flex-end;
   }
 
@@ -1659,15 +1645,15 @@ button{font:inherit}
   .hero__actions { width: fit-content; }
 
   .gift-expiry {
-    width: min(325px, 100%);
+    width: min(340px, 100%);
     margin: var(--expiry-clearance) auto 0;
   }
 
-  .gift-expiry__link { --ring-size: 70px; --ring-width: 2px; gap: 12px; }
-  .gift-expiry__content { padding: 8px 5px 8px 6px; gap: 12px; }
+  .gift-expiry__link { --ring-size: 70px; --ring-width: 2px; gap: 24px; }
+  .gift-expiry__content { padding-inline-end: 5px; gap: 20px; }
   .gift-expiry__eyebrow { font-size: 13px; }
   .gift-expiry__title { font-size: 19px; }
-  .gift-expiry__arrow { width: 13px; height: 13px; }
+  .gift-expiry__arrow { width: 17px; height: 17px; }
 }
 
 @keyframes gift-expiry-glow {
@@ -1689,6 +1675,28 @@ button{font:inherit}
   .hero__content {
     z-index: auto;
     padding-bottom: max(42px, calc(662px - 100svh + var(--gift-expiry-dock-height))) !important;
+  }
+
+  :is(.hero, .purchase-contact) .hero__buttons {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 224px), 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  :is(.hero, .purchase-contact) .hero__buttons .cta {
+    min-height: 48px !important;
+    padding: 10px 16px !important;
+    gap: 8px !important;
+    font-family: var(--sans);
+    font-size: 14px !important;
+    font-weight: 500;
+    line-height: 1.4 !important;
+    letter-spacing: .06em !important;
+  }
+
+  :is(.hero, .purchase-contact) .hero__buttons .cta svg {
+    width: 17px !important;
+    height: 17px !important;
   }
 
   html { scroll-padding-bottom: var(--gift-expiry-dock-height); }
@@ -1753,17 +1761,16 @@ button{font:inherit}
   .gift-expiry__check { border-color: #906832; }
 
   .gift-expiry__content {
-    position: static;
     display: block;
-    padding: 0 36px 0 0;
+    padding-inline-end: 36px;
     text-align: center;
+    letter-spacing: .06em;
   }
 
-  .gift-expiry__content::after,
   .gift-expiry__eyebrow,
   .gift-expiry__desktop-ending { display: none; }
 
-  .gift-expiry__title { font-size: clamp(16px, 4.6vw, 19px); }
+  .gift-expiry__title { font-size: clamp(14px, 4vw, 16px); }
 
   .gift-expiry__arrow {
     position: absolute;
