@@ -1671,27 +1671,38 @@ button{font:inherit}
   }
 }
 
-@media (width > 640px) and (prefers-reduced-motion: no-preference) {
-  .gift-expiry__arrow { animation: gift-expiry-arrow-sparkle 4s ease-in-out infinite; }
+@property --gift-expiry-border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
 
-  @supports (offset-path: inset(.5px round 999px) border-box) {
+@media (width > 640px) {
+  @supports (mask-composite: exclude) {
+    .gift-expiry__link { border-color: transparent; }
+
     .gift-expiry__link::after {
       content: "";
       position: absolute;
-      width: 24px;
-      height: 6px;
-      background: radial-gradient(ellipse, #fffaf2, #e6cba8 35%, transparent 72%);
-      filter: drop-shadow(0 0 3px rgba(230, 203, 168, .75));
-      offset-path: inset(.5px round 999px) border-box;
-      animation: gift-expiry-perimeter 8s linear infinite;
+      inset: -1px;
+      padding: 1px;
+      border-radius: inherit;
+      background: conic-gradient(from var(--gift-expiry-border-angle, 0deg),
+        #f5e9da, #cbb398 25%, #ad9277 50%, #dfcbb4 76%, #f5e9da);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
       pointer-events: none;
     }
   }
 }
 
-@keyframes gift-expiry-perimeter {
-  from { offset-distance: 0%; }
-  to { offset-distance: 100%; }
+@media (width > 640px) and (prefers-reduced-motion: no-preference) {
+  .gift-expiry__arrow { animation: gift-expiry-arrow-sparkle 4s ease-in-out infinite; }
+  .gift-expiry__link::after { animation: gift-expiry-border-rotate 8s linear infinite; }
+}
+
+@keyframes gift-expiry-border-rotate {
+  to { --gift-expiry-border-angle: 360deg; }
 }
 
 @keyframes gift-expiry-arrow-sparkle {
