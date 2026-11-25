@@ -1673,6 +1673,25 @@ button{font:inherit}
 
 @media (width > 640px) and (prefers-reduced-motion: no-preference) {
   .gift-expiry__arrow { animation: gift-expiry-arrow-sparkle 4s ease-in-out infinite; }
+
+  @supports (offset-path: inset(.5px round 999px) border-box) {
+    .gift-expiry__link::after {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 6px;
+      background: radial-gradient(ellipse, #fffaf2, #e6cba8 35%, transparent 72%);
+      filter: drop-shadow(0 0 3px rgba(230, 203, 168, .75));
+      offset-path: inset(.5px round 999px) border-box;
+      animation: gift-expiry-perimeter 8s linear infinite;
+      pointer-events: none;
+    }
+  }
+}
+
+@keyframes gift-expiry-perimeter {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
 }
 
 @keyframes gift-expiry-arrow-sparkle {
