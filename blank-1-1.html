@@ -1561,27 +1561,6 @@ button{font:inherit}
   box-shadow: 0 0 13px rgba(237, 185, 114, .27), inset 0 0 10px rgba(255, 224, 180, .12);
 }
 
-.gift-expiry__ring::after {
-  content: "";
-  position: absolute;
-  inset: calc(var(--ring-width) / 2 - 4.5px);
-  border-radius: inherit;
-  pointer-events: none;
-  background: radial-gradient(circle, #fff9e8 0 15%, #ffddaa 28%, transparent 70%) center top / 9px 9px no-repeat;
-  filter: drop-shadow(0 0 4px #ffd59c);
-  transform: rotate(224deg);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .gift-expiry__ring::after {
-    animation: gift-expiry-orbit 13s linear infinite;
-  }
-}
-
-@keyframes gift-expiry-orbit {
-  to { transform: rotate(584deg); }
-}
-
 .gift-expiry__calendar {
   position: relative;
   width: 46%;
@@ -1645,15 +1624,59 @@ button{font:inherit}
   .hero__actions { width: fit-content; }
 
   .gift-expiry {
-    width: min(340px, 100%);
-    margin: var(--expiry-clearance) auto 0;
+    width: 94%;
+    margin: var(--expiry-clearance) 0 0;
   }
 
-  .gift-expiry__link { --ring-size: 70px; --ring-width: 2px; gap: 24px; }
-  .gift-expiry__content { padding-inline-end: 5px; gap: 20px; }
+  .gift-expiry__link {
+    --ring-size: 36px;
+    position: relative;
+    min-height: 70px;
+    padding: 0 26px 8px 12px;
+    gap: 22px;
+  }
+
+  .gift-expiry__link::after {
+    content: "";
+    position: absolute;
+    inset: auto 12px 0;
+    height: 1px;
+    background: linear-gradient(90deg, #ab8650, #f3ddb0 54%, #ab8650);
+  }
+
+  .gift-expiry__ring {
+    border: 0;
+    background: none;
+    box-shadow: none;
+    color: #efd39e;
+  }
+
+  .gift-expiry__calendar {
+    width: 90%;
+    height: 76%;
+    border-color: currentColor;
+    background-image: linear-gradient(currentColor, currentColor);
+  }
+
+  .gift-expiry__calendar::before,
+  .gift-expiry__calendar::after { background: currentColor; }
+  .gift-expiry__check { border-color: currentColor; }
+  .gift-expiry__content { gap: 20px; }
   .gift-expiry__eyebrow { font-size: 13px; }
   .gift-expiry__title { font-size: 19px; }
   .gift-expiry__arrow { width: 17px; height: 17px; }
+}
+
+@media (width > 640px) and (prefers-reduced-motion: no-preference) {
+  .gift-expiry__arrow { animation: gift-expiry-arrow-sparkle 5.5s ease-in-out infinite; }
+}
+
+@keyframes gift-expiry-arrow-sparkle {
+  0%, 34%, 100% { filter: none; }
+  12% {
+    border-color: #ffe1a4;
+    filter: drop-shadow(0 0 3px #ffd390) drop-shadow(0 0 7px #d8a454);
+  }
 }
 
 @keyframes gift-expiry-glow {
@@ -1747,7 +1770,6 @@ button{font:inherit}
     box-shadow: none;
   }
 
-  .gift-expiry__ring::after { display: none; }
 
   .gift-expiry__calendar {
     width: 54%;
