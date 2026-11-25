@@ -1646,9 +1646,11 @@ button{font:inherit}
   .hero__content { padding-block: 88px; }
 }
 
-@keyframes gift-expiry-border-travel {
-  from { offset-distance: 0%; }
-  to { offset-distance: 100%; }
+@keyframes gift-expiry-border-shimmer {
+  0% { background-position: left center; opacity: 0; }
+  6% { opacity: .8; }
+  17% { opacity: .8; }
+  23%, 100% { background-position: right center; opacity: 0; }
 }
 
 @media (max-width: 640px) {
@@ -1761,19 +1763,16 @@ button{font:inherit}
 }
 
 @media (max-width: 640px) and (prefers-reduced-motion: no-preference) {
-  @supports (offset-path: inset(0 round 999px)) {
-    .gift-expiry__link::after {
-      content: "";
-      position: absolute;
-      width: 19px;
-      height: 6px;
-      border-radius: 50%;
-      background: radial-gradient(ellipse, #fffaf0, #f5cc7e 34%, transparent 72%);
-      filter: drop-shadow(0 0 3px #e3ba73);
-      offset-path: inset(.5px round 999px) border-box;
-      animation: gift-expiry-border-travel 13s linear infinite;
-      pointer-events: none;
-    }
+  .gift-expiry__link::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    inset-inline: 28px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffe2aa 34%, #fff6df 55%, transparent)
+      left center / 44% 100% no-repeat;
+    animation: gift-expiry-border-shimmer 6.5s ease-in-out infinite;
+    pointer-events: none;
   }
 }
 
