@@ -1648,8 +1648,26 @@ button{font:inherit}
 }
 
 @media (width > 640px) {
+  .hero {
+    --expiry-clearance: 64px;
+    min-height: 720px;
+    align-items: flex-end;
+  }
+
   .hero .new-badge { display: none; }
-  .hero__content { padding-block: 88px; }
+  .hero__content { padding-block: 88px var(--expiry-clearance); }
+  .hero__actions { width: fit-content; }
+
+  .gift-expiry {
+    width: min(285px, 100%);
+    margin: var(--expiry-clearance) auto 0;
+  }
+
+  .gift-expiry__link { --ring-size: 62px; --ring-width: 2px; gap: 12px; }
+  .gift-expiry__content { padding: 8px 5px 8px 6px; gap: 12px; }
+  .gift-expiry__eyebrow { font-size: 12px; }
+  .gift-expiry__title { font-size: 1rem; }
+  .gift-expiry__arrow { width: 11px; height: 11px; }
 }
 
 @keyframes gift-expiry-border-shimmer {
@@ -1801,6 +1819,7 @@ button{font:inherit}
 <div class="new-badge"><img alt="NEW" src="images/gift/new.png"/></div>
 <h1><span class="hero-line">ととのえて、はかどる</span><span class="hero-line">そんな時間をギフトに。</span></h1>
 <p class="hero__eyebrow">TOTONOI<span class="totonoi-plus">+</span> GIFT CARD</p>
+<div class="hero__actions">
 <div class="hero__buttons">
 <a aria-label="電話で問い合わせる" class="cta cta--phone" href="tel:0487834122">
 <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"></path></svg>
@@ -1823,6 +1842,7 @@ button{font:inherit}
       <span class="gift-expiry__arrow" aria-hidden="true"></span>
     </span>
   </a>
+</div>
 </div>
 </div>
 </section>
