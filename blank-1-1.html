@@ -1520,12 +1520,12 @@ button{font:inherit}
 </style>
 <style id="gift-expiry-cta">
 .gift-expiry {
-  width: min(480px, 100%);
+  width: min(420px, 100%);
   margin-top: 24px;
 }
 
 .gift-expiry__link {
-  --ring-size: 106px;
+  --ring-size: 88px;
   --ring-width: 3px;
   display: grid;
   grid-template-columns: var(--ring-size) minmax(0, 1fr);
@@ -1616,7 +1616,7 @@ button{font:inherit}
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 16px;
   align-items: center;
-  padding: 0 6px 19px 10px;
+  padding: 12px 6px 12px 10px;
   line-height: 1.4;
 }
 
@@ -1630,8 +1630,8 @@ button{font:inherit}
   box-shadow: 0 0 6px rgba(255, 211, 153, .34);
 }
 
-.gift-expiry__eyebrow { display: block; margin-bottom: 3px; font-size: 20px; }
-.gift-expiry__title { display: block; font-size: 31px; font-weight: 600; white-space: nowrap; }
+.gift-expiry__eyebrow { display: block; margin-bottom: 3px; font-size: 17px; }
+.gift-expiry__title { display: block; font-size: 27px; font-weight: 600; white-space: nowrap; }
 
 .gift-expiry__arrow {
   width: 17px;
@@ -1639,6 +1639,16 @@ button{font:inherit}
   border: solid #fffaf4;
   border-width: 2px 2px 0 0;
   transform: rotate(45deg);
+}
+
+@media (width > 640px) {
+  .hero .new-badge { display: none; }
+  .hero__content { padding-block: 88px; }
+}
+
+@keyframes gift-expiry-border-travel {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
 }
 
 @media (max-width: 640px) {
@@ -1664,26 +1674,29 @@ button{font:inherit}
     max-width: none;
     height: var(--gift-expiry-dock-height);
     margin: 0;
-    padding: 10px max(16px, env(safe-area-inset-right, 0px))
+    padding: 10px max(24px, env(safe-area-inset-right, 0px))
       calc(10px + env(safe-area-inset-bottom, 0px))
-      max(16px, env(safe-area-inset-left, 0px));
-    background: #f6f5f0;
-    box-shadow: 0 -4px 18px rgba(37, 28, 14, .14);
+      max(24px, env(safe-area-inset-left, 0px));
+    pointer-events: none;
   }
 
   .gift-expiry__link {
     --ring-size: 36px;
     --ring-width: 1px;
     position: relative;
-    width: min(100%, 380px);
+    width: min(100%, 320px);
     height: 100%;
     margin-inline: auto;
     padding: 0 14px 0 10px;
     gap: 0;
     border: 1px solid #b99b65;
     border-radius: 999px;
-    background: #faf9f5;
+    background: linear-gradient(170deg, rgba(255, 252, 243, .72), rgba(246, 237, 217, .55));
+    -webkit-backdrop-filter: blur(14px) saturate(1.35);
+    backdrop-filter: blur(14px) saturate(1.35);
     color: #24211d;
+    pointer-events: auto;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .70), 0 4px 16px rgba(37, 28, 14, .18);
   }
 
   .gift-expiry__link:focus-visible {
@@ -1692,14 +1705,11 @@ button{font:inherit}
   }
 
   .gift-expiry__ring {
-    background: #efe6d7;
+    background: rgba(255, 245, 224, .52);
     box-shadow: none;
   }
 
-  .gift-expiry__ring::after {
-    background-image: radial-gradient(circle, #fff 0 12%, #e4c18a 24%, transparent 67%);
-    filter: drop-shadow(0 0 2px #b88a47);
-  }
+  .gift-expiry__ring::after { display: none; }
 
   .gift-expiry__calendar {
     width: 54%;
@@ -1749,6 +1759,24 @@ button{font:inherit}
     transform: translateY(-50%) rotate(45deg);
   }
 }
+
+@media (max-width: 640px) and (prefers-reduced-motion: no-preference) {
+  @supports (offset-path: inset(0 round 999px)) {
+    .gift-expiry__link::after {
+      content: "";
+      position: absolute;
+      width: 19px;
+      height: 6px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, #fffaf0, #f5cc7e 34%, transparent 72%);
+      filter: drop-shadow(0 0 3px #e3ba73);
+      offset-path: inset(.5px round 999px) border-box;
+      animation: gift-expiry-border-travel 13s linear infinite;
+      pointer-events: none;
+    }
+  }
+}
+
 </style>
 </head>
 <body>
