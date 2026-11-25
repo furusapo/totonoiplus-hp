@@ -1671,38 +1671,45 @@ button{font:inherit}
   }
 }
 
-@property --gift-expiry-border-angle {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
+.gift-expiry__edge { display: none; }
 
 @media (width > 640px) {
   @supports (mask-composite: exclude) {
     .gift-expiry__link { border-color: transparent; }
 
-    .gift-expiry__link::after {
-      content: "";
+    .gift-expiry__edge {
+      display: block;
       position: absolute;
       inset: -1px;
       padding: 2px;
       border-radius: inherit;
-      background: conic-gradient(from var(--gift-expiry-border-angle, 0deg),
-        #fff8ee, #e5ccb4 24%, #896b55 50%, #b99b83 74%, #fff8ee);
+      overflow: hidden;
       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       mask-composite: exclude;
       pointer-events: none;
+    }
+
+    .gift-expiry__edge::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 110%;
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      background: conic-gradient(from 45deg, #fff9ed, #e9c39e 26%,
+        #8e6147 50%, #c99770 74%, #fff9ed);
     }
   }
 }
 
 @media (width > 640px) and (prefers-reduced-motion: no-preference) {
   .gift-expiry__arrow { animation: gift-expiry-arrow-sparkle 4s ease-in-out infinite; }
-  .gift-expiry__link::after { animation: gift-expiry-border-rotate 6s linear infinite; }
+  .gift-expiry__edge::before { animation: gift-expiry-border-rotate 6s linear infinite; }
 }
 
 @keyframes gift-expiry-border-rotate {
-  to { --gift-expiry-border-angle: 360deg; }
+  to { transform: translate(-50%, -50%) rotate(1turn); }
 }
 
 @keyframes gift-expiry-arrow-sparkle {
@@ -1807,6 +1814,7 @@ button{font:inherit}
     </span>
     <span class="gift-expiry__title">有効期限を確認</span>
     <span class="gift-expiry__arrow" aria-hidden="true"></span>
+    <span class="gift-expiry__edge" aria-hidden="true"></span>
   </a>
 </div>
 </div>
