@@ -1526,48 +1526,54 @@ button{font:inherit}
 </style>
 <style id="gift-expiry-cta">
 .gift-expiry {
-  width: min(420px, 100%);
-  margin-top: 24px;
+  width: min(calc(100% - 16px), 320px);
+  margin: 20px auto 0;
 }
 
 .gift-expiry__link {
-  --ring-size: 88px;
-  --ring-width: 3px;
+  --ring-size: 36px;
+  position: relative;
+  min-height: 56px;
+  padding: 0 14px 0 10px;
   display: grid;
   grid-template-columns: var(--ring-size) minmax(0, 1fr);
   align-items: center;
-  gap: 16px;
-  color: #fffaf4;
   font-family: var(--sans);
+  border: 1px solid #b99b65;
+  border-radius: 999px;
+  background: linear-gradient(170deg, rgba(255, 252, 243, .72), rgba(246, 237, 217, .55));
+  -webkit-backdrop-filter: blur(14px) saturate(1.35);
+  backdrop-filter: blur(14px) saturate(1.35);
+  color: #24211d;
+  --gift-expiry-rest-shadow: inset 0 1px 0 rgba(255, 255, 255, .70),
+    0 0 0 rgba(220, 176, 102, 0), 0 4px 16px rgba(37, 28, 14, .18);
+  box-shadow: var(--gift-expiry-rest-shadow);
 }
 
 .gift-expiry__link:focus-visible {
-  outline: 2px solid #ffe6b6;
-  outline-offset: 5px;
-  border-radius: 4px;
+  outline: 2px solid #775324;
+  outline-offset: 3px;
+  border-radius: 999px;
 }
 
 .gift-expiry__ring {
-  position: relative;
   display: grid;
   place-items: center;
   width: var(--ring-size);
   aspect-ratio: 1;
-  border: var(--ring-width) solid transparent;
+  border: 1px solid transparent;
   border-radius: 50%;
-  background:
-    radial-gradient(circle at 55% 40%, #1b1715, #0d0b0a 72%) padding-box,
-    linear-gradient(145deg, #fffaf2 24%, #f5e4cc 53%, #d6ae7b 73%, #fff3db 91%) border-box;
-  box-shadow: 0 0 13px rgba(237, 185, 114, .27), inset 0 0 10px rgba(255, 224, 180, .12);
+  background: rgba(255, 245, 224, .52);
 }
+
 
 .gift-expiry__calendar {
   position: relative;
-  width: 46%;
-  height: 40%;
-  border: 2px solid #f8e8d4;
+  width: 54%;
+  height: 50%;
+  border: 2px solid #906832;
   border-radius: 13%;
-  background: linear-gradient(#fff7eb, #fff7eb) 0 27% / 100% 2px no-repeat;
+  background: linear-gradient(#906832, #906832) 0 27% / 100% 2px no-repeat;
 }
 
 .gift-expiry__calendar::before,
@@ -1578,7 +1584,7 @@ button{font:inherit}
   width: 2px;
   height: 32%;
   border-radius: 2px;
-  background: #fffaf2;
+  background: #906832;
 }
 
 .gift-expiry__calendar::before { left: 21%; }
@@ -1590,26 +1596,43 @@ button{font:inherit}
   left: 34%;
   width: 37%;
   height: 24%;
-  border: solid #f8e8d4;
+  border: solid #906832;
   border-width: 0 0 2px 2px;
   transform: rotate(-45deg);
 }
 
-.gift-expiry__content {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
+.gift-expiry__title {
+  padding-inline-end: 36px;
+  text-align: center;
+  font-size: clamp(14px, 4vw, 16px);
+  font-weight: 500;
   line-height: 1.45;
-  letter-spacing: .08em;
+  letter-spacing: .06em;
+  white-space: nowrap;
 }
 
-.gift-expiry__eyebrow { display: block; margin-bottom: 5px; font-weight: 400; }
-.gift-expiry__title { display: block; font-weight: 500; white-space: nowrap; }
-
 .gift-expiry__arrow {
-  border: solid #fffaf4;
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  width: 13px;
+  height: 2px;
+  border: 0;
+  border-radius: 2px;
+  transform: translateY(-50%);
+  background: #906832;
+}
+
+.gift-expiry__arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 7px;
+  height: 7px;
+  border: solid #906832;
   border-width: 2px 2px 0 0;
-  transform: rotate(45deg);
+  transform: translateY(-50%) rotate(45deg);
 }
 
 @media (width > 640px) {
@@ -1621,49 +1644,6 @@ button{font:inherit}
 
   .hero__content { padding-block: 88px var(--expiry-clearance); }
   .hero__actions { width: fit-content; }
-
-  .gift-expiry {
-    width: 94%;
-    margin: var(--expiry-clearance) 0 0;
-  }
-
-  .gift-expiry__link {
-    --ring-size: 42px;
-    position: relative;
-    min-height: 70px;
-    padding: 0 26px 8px 12px;
-    gap: 36px;
-  }
-
-  .gift-expiry__link::after {
-    content: "";
-    position: absolute;
-    inset: auto 12px 0;
-    height: 1px;
-    background: linear-gradient(90deg, #ab8650, #f3ddb0 54%, #ab8650);
-  }
-
-  .gift-expiry__ring {
-    border: 0;
-    background: none;
-    box-shadow: none;
-    color: #efd39e;
-  }
-
-  .gift-expiry__calendar {
-    width: 90%;
-    height: 76%;
-    border-color: currentColor;
-    background-image: linear-gradient(currentColor, currentColor);
-  }
-
-  .gift-expiry__calendar::before,
-  .gift-expiry__calendar::after { background: currentColor; }
-  .gift-expiry__check { border-color: currentColor; }
-  .gift-expiry__content { gap: 20px; line-height: 1.4; letter-spacing: .08em; }
-  .gift-expiry__eyebrow { font-size: 14px; margin-bottom: 5px; }
-  .gift-expiry__title { font-size: 23px; }
-  .gift-expiry__arrow { width: 15px; height: 15px; }
 }
 
 @media (width > 640px) and (prefers-reduced-motion: no-preference) {
@@ -1707,87 +1687,6 @@ button{font:inherit}
     width: 17px !important;
     height: 17px !important;
   }
-
-  .gift-expiry {
-    width: min(calc(100% - 16px), 320px);
-    margin: 20px auto 0;
-  }
-
-  .gift-expiry__link {
-    --ring-size: 36px;
-    --ring-width: 1px;
-    position: relative;
-    min-height: 56px;
-    padding: 0 14px 0 10px;
-    gap: 0;
-    border: 1px solid #b99b65;
-    border-radius: 999px;
-    background: linear-gradient(170deg, rgba(255, 252, 243, .72), rgba(246, 237, 217, .55));
-    -webkit-backdrop-filter: blur(14px) saturate(1.35);
-    backdrop-filter: blur(14px) saturate(1.35);
-    color: #24211d;
-    --gift-expiry-rest-shadow: inset 0 1px 0 rgba(255, 255, 255, .70),
-      0 0 0 rgba(220, 176, 102, 0), 0 4px 16px rgba(37, 28, 14, .18);
-    box-shadow: var(--gift-expiry-rest-shadow);
-  }
-
-  .gift-expiry__link:focus-visible {
-    outline-color: #775324;
-    border-radius: 999px;
-  }
-
-  .gift-expiry__ring {
-    background: rgba(255, 245, 224, .52);
-    box-shadow: none;
-  }
-
-
-  .gift-expiry__calendar {
-    width: 54%;
-    height: 50%;
-    border-color: #906832;
-    background-image: linear-gradient(#906832, #906832);
-  }
-
-  .gift-expiry__calendar::before,
-  .gift-expiry__calendar::after { background: #906832; }
-  .gift-expiry__check { border-color: #906832; }
-
-  .gift-expiry__content {
-    display: block;
-    padding-inline-end: 36px;
-    text-align: center;
-    letter-spacing: .06em;
-  }
-
-  .gift-expiry__eyebrow,
-  .gift-expiry__desktop-ending { display: none; }
-
-  .gift-expiry__title { font-size: clamp(14px, 4vw, 16px); }
-
-  .gift-expiry__arrow {
-    position: absolute;
-    top: 50%;
-    right: 16px;
-    width: 13px;
-    height: 2px;
-    border: 0;
-    border-radius: 2px;
-    transform: translateY(-50%);
-    background: #906832;
-  }
-
-  .gift-expiry__arrow::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: 7px;
-    height: 7px;
-    border: solid #906832;
-    border-width: 2px 2px 0 0;
-    transform: translateY(-50%) rotate(45deg);
-  }
 }
 
 @media (max-width: 640px) and (prefers-reduced-motion: no-preference) {
@@ -1795,7 +1694,6 @@ button{font:inherit}
     animation: gift-expiry-glow 6s ease-in-out infinite;
   }
 }
-
 </style>
 </head>
 <body>
@@ -1831,13 +1729,8 @@ button{font:inherit}
     <span class="gift-expiry__ring" aria-hidden="true">
       <span class="gift-expiry__calendar"><span class="gift-expiry__check"></span></span>
     </span>
-    <span class="gift-expiry__content">
-      <span>
-        <span class="gift-expiry__eyebrow">ギフトカードをお持ちの方へ</span>
-        <span class="gift-expiry__title">有効期限を確認<span class="gift-expiry__desktop-ending">する</span></span>
-      </span>
-      <span class="gift-expiry__arrow" aria-hidden="true"></span>
-    </span>
+    <span class="gift-expiry__title">有効期限を確認</span>
+    <span class="gift-expiry__arrow" aria-hidden="true"></span>
   </a>
 </div>
 </div>
