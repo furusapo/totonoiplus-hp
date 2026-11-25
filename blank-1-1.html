@@ -1685,10 +1685,10 @@ button{font:inherit}
       content: "";
       position: absolute;
       inset: -1px;
-      padding: 1px;
+      padding: 2px;
       border-radius: inherit;
       background: conic-gradient(from var(--gift-expiry-border-angle, 0deg),
-        #f5e9da, #cbb398 25%, #ad9277 50%, #dfcbb4 76%, #f5e9da);
+        #fff8ee, #e5ccb4 24%, #896b55 50%, #b99b83 74%, #fff8ee);
       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       mask-composite: exclude;
       pointer-events: none;
@@ -1698,7 +1698,7 @@ button{font:inherit}
 
 @media (width > 640px) and (prefers-reduced-motion: no-preference) {
   .gift-expiry__arrow { animation: gift-expiry-arrow-sparkle 4s ease-in-out infinite; }
-  .gift-expiry__link::after { animation: gift-expiry-border-rotate 8s linear infinite; }
+  .gift-expiry__link::after { animation: gift-expiry-border-rotate 6s linear infinite; }
 }
 
 @keyframes gift-expiry-border-rotate {
